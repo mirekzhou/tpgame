@@ -1,6 +1,6 @@
 <template>
 	<div class="page phonebetting-page">
-		我是phonebetting页面
+		我是phonebetting-page
 	</div>
 </template>
 
