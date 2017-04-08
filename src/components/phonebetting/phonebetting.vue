@@ -1,6 +1,6 @@
 <template>
 	<div class="page phonebetting-page">
-		我是phonebetting-page（dev分支测试3）
+		我是phonebetting-page（dev分支测试4）
 	</div>
 </template>
 
