@@ -6,35 +6,113 @@
 			</div>
 
 			<div class="middle-zone">
-				<div class="middle-zone-left">
-					<div class="middle-zone-left-wrapper">
-						<div class="line1">新手100%首存</div>
-						<div class="line2">世界体育新上线</div>
-						<div class="line3">
-							<div class="button">点击进入</div>
-						</div>
-					</div>
-				</div>
+			    <swiper :options="swiperOption">
+			        <swiper-slide>
+			        	<div class="swiper-slide-wrapper">
+							<div class="middle-zone-left">
+								<div class="middle-zone-left-wrapper">
+									<div class="line1">新手100%首存</div>
+									<div class="line2">世界体育新上线</div>
+									<div class="line3">
+										<div class="button">点击进入</div>
+									</div>
+								</div>
+							</div>
 
-				<div class="middle-zone-right">
-					<img src="../../assets/home-page-banner1.png">
-				</div>
+							<div class="middle-zone-right">
+								<img src="../../assets/home-page-banner1.png">
+							</div>
+							<div class="clear"></div>
+						</div>
+			        </swiper-slide>
+
+			        <swiper-slide>
+			        	<div class="swiper-slide-wrapper">
+							<div class="middle-zone-left">
+								<div class="middle-zone-left-wrapper">
+									<div class="line1">新手100%首存</div>
+									<div class="line2">世界体育新上线</div>
+									<div class="line3">
+										<div class="button">点击进入</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="middle-zone-right">
+								<img src="../../assets/home-page-banner2.png">
+							</div>
+							<div class="clear"></div>
+						</div>
+			        </swiper-slide>
+
+			        <swiper-slide>
+			        	<div class="swiper-slide-wrapper">
+							<div class="middle-zone-left">
+								<div class="middle-zone-left-wrapper">
+									<div class="line1">新手100%首存</div>
+									<div class="line2">世界体育新上线</div>
+									<div class="line3">
+										<div class="button">点击进入</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="middle-zone-right">
+								<img src="../../assets/home-page-banner1.png">
+							</div>
+							<div class="clear"></div>
+						</div>
+			        </swiper-slide>
+
+			        <swiper-slide>
+			        	<div class="swiper-slide-wrapper">
+							<div class="middle-zone-left">
+								<div class="middle-zone-left-wrapper">
+									<div class="line1">新手100%首存</div>
+									<div class="line2">世界体育新上线</div>
+									<div class="line3">
+										<div class="button">点击进入</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="middle-zone-right">
+								<img src="../../assets/home-page-banner2.png">
+							</div>
+							<div class="clear"></div>
+						</div>
+			        </swiper-slide>
+			    </swiper>
 			</div>
 
 			<div class="right-zone">
-				<span class="left-arrow"></span>
+				<span class="right-arrow"></span>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+	import { swiper, swiperSlide } from 'vue-awesome-swiper';
+
 	export default {
 		name: 'home-page',
 		
 		data: function () {
 			return {
+		        swiperOption: {
+		          	pagination: '.swiper-pagination',
+		          	paginationClickable: true,
+			        prevButton:'.left-arrow',
+			        nextButton:'.right-arrow',
+			        spaceBetween: 100
+		        }
 			}
+		},
+
+		components: {
+			swiper,
+			swiperSlide
 		},
 
 		method: {
@@ -76,59 +154,65 @@
 				right: 60px;
 				top: 0;
 				height: 100%;
-				display: flex;
 
-				.middle-zone-left {
-					-webkit-flex: 1;
-					flex: 1;
+				.swiper-slide-wrapper {
 					display: flex;
-					flex-direction: row;
-					justify-content: space-around;
-					align-items: center;
+				    -webkit-user-select: none;
+				    user-select: none;
 
-					.line1 {
-						color: #cb78e0;
-						font-weight: bold;
-						font-size: 50px;
-					}
+					.middle-zone-left {
+						-webkit-flex: 1;
+						flex: 1;
+						display: flex;
+						flex-direction: row;
+						justify-content: space-around;
+						align-items: center;
 
-					.line2 {
-						color: #FFF;
-						font-weight: bold;
-						font-size: 70px;
-						margin-top: 5px;
-					}
-
-					.line3 {
-						width: 100%;
-						text-align: center;
-						margin-top: 20px;
-
-						.button {
-							background-color: #2a2344;
+						.line1 {
 							color: #cb78e0;
-							cursor: pointer;
-							display: inline-block;
-							font-size: 18px;
-							height: 50px;
-							line-height: 50px;
-							width: 180px;
+							font-weight: bold;
+							font-size: 50px;
+						}
+
+						.line2 {
+							color: #FFF;
+							font-weight: bold;
+							font-size: 70px;
+							margin-top: 5px;
+						}
+
+						.line3 {
+							width: 100%;
 							text-align: center;
+							margin-top: 20px;
+
+							.button {
+								background-color: #2a2344;
+								color: #cb78e0;
+								cursor: pointer;
+								display: inline-block;
+								font-size: 18px;
+								height: 50px;
+								line-height: 50px;
+								width: 180px;
+								text-align: center;
+							}
 						}
 					}
-				}
 
-				.middle-zone-right {
-					-webkit-flex: 1;
-					flex: 1;
-					display: flex;
-					flex-direction: row;
-					justify-content: space-around;
-					align-items: center;
-					overflow: hidden;
+					.middle-zone-right {
+						-webkit-flex: 1;
+						flex: 1;
+						display: flex;
+						flex-direction: row;
+						justify-content: space-around;
+						align-items: center;
+						overflow: hidden;
 
-					img {
-						width: 90%;
+						img {
+							width: 90%;
+							max-width: 550px;
+						}
 					}
 				}
 			}
@@ -144,7 +228,7 @@
 				justify-content: space-around;
 				align-items: center;
 
-				.left-arrow {
+				.right-arrow {
 					background-image: url(../../assets/page-right-arrow.png);
 					cursor: pointer;
 					height: 60px;

@@ -1,42 +1,56 @@
 <template>
 	<div class="page-naver">
 		<div class="page-naver-wrapper">
-			<div class="naver-item naver-sport">
-				<div class="img"></div>
-				<div class="name">体育竞技</div>
-				<audio src="../assets/sport.mp3" autoplay="autoplay">您的浏览器不支持 audio 标签。</audio>
-			</div>
+			<div v-for="item in items" 
+				 class="naver-item" 
+				 v-bind:class="item.className" 
+				 v-on:mouseover="playAudio($event)"
+				 v-on:mouseout="stopAudio($event)">
 
-			<div class="naver-item naver-live">
 				<div class="img"></div>
-				<div class="name">真人娱乐</div>
-				<audio src="../assets/live.mp3" autoplay="autoplay">您的浏览器不支持 audio 标签。</audio>
-			</div>
-
-			<div class="naver-item naver-slot">
-				<div class="img"></div>
-				<div class="name">电子游艺</div>
-			</div>
-
-			<div class="naver-item naver-lottery">
-				<div class="img"></div>
-				<div class="name">彩票游戏</div>
-			</div>
-
-			<div class="naver-item naver-egaming">
-				<div class="img"></div>
-				<div class="name">电子竞技</div>
+				<div class="name">{{item.textName}}</div>
+				<audio v-bind:src="item.audioSrc">您的浏览器不支持 audio 标签。</audio>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+	import mp31 from '../assets/live.mp3';
+	import mp32 from '../assets/sport.mp3';
+
 	export default {
 		name: 'page-naver',
 		
 		data: function () {
 			return {
+				items: [
+					{
+						className: 'naver-sport',
+						audioSrc : mp31,
+						textName : '体育竞技'
+					},
+					{
+						className: 'naver-live',
+						audioSrc : mp32,
+						textName : '真人娱乐'
+					},
+					{
+						className: 'naver-slot',
+						audioSrc : mp31,
+						textName : '电子游艺'
+					},
+					{
+						className: 'naver-lottery',
+						audioSrc : mp32,
+						textName : '彩票游戏'
+					},
+					{
+						className: 'naver-egaming',
+						audioSrc : mp31,
+						textName : '电子竞技'
+					}
+				]
 			}
 		},
 
@@ -44,6 +58,19 @@
 		},
 
 		methods: {
+			playAudio: function (event) {
+				//【1】 关于v-ref在v-for里面使用的问题:
+				// As I mentioned in the previous issue, v-ref inside v-for is a rabbit hole, 
+				// supporting it leads to more problems than convenience 
+				// when you can just give your component a class name and do this.$el.querySelectorAll('...').
+
+				//【2】 注意元素绑定方法是传参的方法： $event
+				event.currentTarget.querySelector('audio').play();
+			},
+
+			stopAudio: function (event) {
+				event.currentTarget.querySelector('audio').pause();
+			}
 		}
 	}
 </script>
