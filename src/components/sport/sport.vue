@@ -1,6 +1,6 @@
 <template>
 	<div class="page sport-page">
-		我是sport-page
+		<iframe src="http://188.vbetsport.com/zh-cn/Sport/Index"></iframe>
 	</div>
 </template>
 
@@ -20,5 +20,12 @@
 
 <style lang="scss" scoped>
 	.sport-page {
+		height: 1000px;
+
+		iframe {
+			min-height: 100%;
+			width: 1000px;
+
+		}
 	}
 </style>

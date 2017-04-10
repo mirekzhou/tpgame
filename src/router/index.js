@@ -19,15 +19,18 @@ export default new VueRouter({
 	routes: [
 		{
 			path: '/',
-			component: home
+			component: home,
+			meta: {keepAlive: true}
 		},
 		{
 			path: '/home',
-			component: home
+			component: home,
+			meta: {keepAlive: true}
 		},
 		{
 			path: '/sport',
-			component: sport
+			component: sport,
+			meta: {keepAlive: true}
 		},
 		{
 			path: '/live',

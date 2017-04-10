@@ -1,9 +1,22 @@
 <template>
 	<div id="app">
 		<my-header></my-header>
+<!-- 		<transition name="fade">
+			<keep-alive>
+				<router-view></router-view>
+			</keep-alive>
+		</transition> -->
+
 		<transition name="fade">
-			<router-view></router-view>
+		    <keep-alive>
+		      	<router-view v-if="$route.meta.keepAlive"></router-view>
+		    </keep-alive>
 		</transition>
+
+		<transition name="fade">
+		    <router-view v-if="!$route.meta.keepAlive"></router-view>
+		</transition>
+		
 		<!-- <my-footer></my-footer> -->
 		<page-naver></page-naver>
 	</div>
