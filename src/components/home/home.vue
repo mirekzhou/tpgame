@@ -88,11 +88,14 @@
 			<div class="right-zone">
 				<span class="right-arrow"></span>
 			</div>
+
+			<page-naver></page-naver>
 		</div>
 	</div>
 </template>
 
 <script>
+	import pageNaver  from './pageNaver.vue';
 	import { swiper, swiperSlide } from 'vue-awesome-swiper';
 
 	export default {
@@ -111,8 +114,9 @@
 		},
 
 		components: {
-			swiper,
-			swiperSlide
+			'swiper': swiper,
+			'swiper-slide': swiperSlide,
+			'page-naver' : pageNaver
 		},
 
 		method: {
@@ -122,6 +126,8 @@
 
 <style lang="scss" scoped>
 	.home-page {
+		height: 550px;
+
 		.home-page-wrapper {
 			position: relative;
 

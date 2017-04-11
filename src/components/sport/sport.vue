@@ -20,12 +20,12 @@
 
 <style lang="scss" scoped>
 	.sport-page {
-		height: 1000px;
+		height: auto;
+		padding-bottom: 100px;
 
 		iframe {
-			min-height: 100%;
-			width: 1000px;
-
+			height: 1200px;
+			width: 1024px;
 		}
 	}
 </style>

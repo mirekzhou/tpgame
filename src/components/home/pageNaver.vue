@@ -16,8 +16,8 @@
 </template>
 
 <script>
-	import mp31 from '../assets/live.mp3';
-	import mp32 from '../assets/sport.mp3';
+	import mp31 from '../../assets/live.mp3';
+	import mp32 from '../../assets/sport.mp3';
 
 	export default {
 		name: 'page-naver',
@@ -135,81 +135,81 @@
 			}
 
 			.naver-sport {
-				background-image: url(../assets/naver-sport.png);
+				background-image: url(../../assets/naver-sport.png);
 
 				.img {
-					background-image: url(../assets/naver-sport-img.png);
+					background-image: url(../../assets/naver-sport-img.png);
 				}
 
 				&:hover {
-					background-image: url(../assets/naver-sport-active.png);
+					background-image: url(../../assets/naver-sport-active.png);
 
 					.img {
-						background-image: url(../assets/naver-sport-img-active.png);
+						background-image: url(../../assets/naver-sport-img-active.png);
 					}
 				}
 			}
 
 			.naver-live {
-				background-image: url(../assets/naver-live.png);
+				background-image: url(../../assets/naver-live.png);
 
 				.img {
-					background-image: url(../assets/naver-live-img.png);
+					background-image: url(../../assets/naver-live-img.png);
 				}
 
 				&:hover {
-					background-image: url(../assets/naver-live-active.png);
+					background-image: url(../../assets/naver-live-active.png);
 
 					.img {
-						background-image: url(../assets/naver-live-img-active.png);
+						background-image: url(../../assets/naver-live-img-active.png);
 					}
 				}
 			}
 
 			.naver-slot {
-				background-image: url(../assets/naver-slot.png);
+				background-image: url(../../assets/naver-slot.png);
 
 				.img {
-					background-image: url(../assets/naver-slot-img.png);
+					background-image: url(../../assets/naver-slot-img.png);
 				}
 
 				&:hover {
-					background-image: url(../assets/naver-slot-active.png);
+					background-image: url(../../assets/naver-slot-active.png);
 
 					.img {
-						background-image: url(../assets/naver-slot-img-active.png);
+						background-image: url(../../assets/naver-slot-img-active.png);
 					}
 				}
 			}
 
 			.naver-lottery {
-				background-image: url(../assets/naver-lottery.png);
+				background-image: url(../../assets/naver-lottery.png);
 
 				.img {
-					background-image: url(../assets/naver-lottery-img.png);
+					background-image: url(../../assets/naver-lottery-img.png);
 				}
 
 				&:hover {
-					background-image: url(../assets/naver-lottery-active.png);
+					background-image: url(../../assets/naver-lottery-active.png);
 
 					.img {
-						background-image: url(../assets/naver-lottery-img-active.png);
+						background-image: url(../../assets/naver-lottery-img-active.png);
 					}
 				}
 			}
 
 			.naver-egaming {
-				background-image: url(../assets/naver-egaming.png);
+				background-image: url(../../assets/naver-egaming.png);
 
 				.img {
-					background-image: url(../assets/naver-egaming-img.png);
+					background-image: url(../../assets/naver-egaming-img.png);
 				}
 
 				&:hover {
-					background-image: url(../assets/naver-egaming-active.png);
+					background-image: url(../../assets/naver-egaming-active.png);
 
 					.img {
-						background-image: url(../assets/naver-egaming-img-active.png);
+						background-image: url(../../assets/naver-egaming-img-active.png);
 					}
 				}
 			}

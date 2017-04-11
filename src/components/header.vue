@@ -46,6 +46,9 @@
 
 	.header {
 		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
 
 		.top-section {
 			background-color: rgba(0,0,0, .4);
