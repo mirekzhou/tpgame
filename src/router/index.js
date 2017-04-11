@@ -20,41 +20,47 @@ export default new VueRouter({
 		{
 			path: '/',
 			component: home,
-			meta: {keepAlive: true}
+			name: 'home'
 		},
 		{
 			path: '/home',
 			component: home,
-			meta: {keepAlive: true}
+			name: 'home'
 		},
 		{
 			path: '/sport',
 			component: sport,
-			meta: {keepAlive: true}
+			name: 'sport'
 		},
 		{
 			path: '/live',
-			component: live
+			component: live,
+			name: 'live'
 		},
 		{
 			path: '/slot',
-			component: slot
+			component: slot,
+			name: 'slot'
 		},
 		{
 			path: '/egaming',
-			component: egaming
+			component: egaming,
+			name: 'egaming'
 		},
 		{
 			path: '/lottery',
-			component: lottery
+			component: lottery,
+			name: 'lottery'
 		},
 		{
 			path: '/phonebetting',
-			component: phonebetting
+			component: phonebetting,
+			name: 'phonebetting'
 		},
 		{
 			path: '/download',
-			component: download
+			component: download,
+			name: 'download'
 		}
 	]
 });
