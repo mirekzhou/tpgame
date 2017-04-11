@@ -13,7 +13,7 @@
 			}
 		},
 
-		method: {
+		methods: {
 		}
 	}
 </script>

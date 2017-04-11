@@ -119,7 +119,7 @@
 			'page-naver' : pageNaver
 		},
 
-		method: {
+		methods: {
 		}
 	}
 </script>
