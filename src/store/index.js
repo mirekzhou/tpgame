@@ -1,23 +1,47 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-
+import actions from './actions';      //不能是 'actions', 而是'./actions'
+import mutations from './mutations';
+/*import getters from 'getters';
+import modules from 'modules';*/
 
 /*
-** 【1】 改变store中的状态的唯一途径就是现实的提交(commit) mutations， 不要直接改变store中的状态!!!!
+** 【1】 store存在的意义：管理组件的【共享状态】。
+** 【2】 改变store中的状态的唯一途径就是现实的提交(commit) mutations， 不要直接改变store中的状态!!!!
 **     eg: store.commit('inrement');
 **
 */
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-	state: {
-		count: 0
-	},
+const state = {
+	loginStatus            :   '',      //登录状态
+	loginUserInfo          :   '',      //已登录用户信息
+	balance                :   '',      //用户余额
+	proxy                  :   '',      //代理号
+	gameWins               :   {},      //各平台游戏打开的窗口
+	jackpotGames           :   [],      //彩金游戏
+	registerConfig         :   '',      //注册配置
+	platformsInfo          :   '',      //平台配置信息
 
-	mutations: {
-		increment: function (state) {
-			state.count++;
-		}
-	}
+	trueNameStatus         :   '',      //是否绑定真实姓名
+	userPhoneStatus        :   '',      //是否绑定手机号码
+	userEmailStatus        :   '',      //是否绑定邮箱
+	userBankCards          :   '',      //用户银行卡数量
+
+	sportUrl               :   '',      //登录状态体育url
+	sportTryUrl            :   '',      //非登录状态体育url
+	phoneBettingUrl        :   '',      //登录状态电投url
+	phoneBettingTryUrl     :   '',      //非登录状态电投url
+
+	proxyLoginUrl          :   '',      //代理登录url
+	onlineServiceUrl       :   '',      //客服url
+	gameCollections        :   [],      //游戏收藏列表
+
+};
+
+export default new Vuex.Store({
+	state      :  state,
+	actions    :  actions,
+	mutations  :  mutations
 });
 

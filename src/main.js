@@ -10,8 +10,8 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
 	el: '#app',
-	router,
-	store,
+	router,               //es6的语法, 等同于： router:router
+	store,                //es6的语法, 等同于： store:store
 	template: '<App/>',
 	components: { App }
 });

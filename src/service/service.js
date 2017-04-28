@@ -8,6 +8,8 @@ export default {
         var that   = this;
 		var url    = encodeURI(opt.url);
 
+        opt.data = opt.data || {};
+
         task = function () {
         	axios.get(url, {
         		params: opt.data,
