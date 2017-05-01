@@ -19,6 +19,10 @@
 	export default {
 		name: 'app',
 		
+		mounted: function () {
+			this.$store.dispatch('getLoginStatus');
+		},
+
 		components: {
 			'my-header'  : header,
 			'my-footer'  : footer

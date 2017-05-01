@@ -1,49 +1,51 @@
 <template>
 	<div class="page sport-page">
-		<iframe ref="iframe"></iframe>
+		<iframe ref="iframe" v-bind:src="t188Url"></iframe>
 	</div>
 </template>
 
 <script>
+	import { mapState } from 'vuex';
 	import Config from '../../config/config.js';
 	import Service from '../../service/service.js';
 
 	export default {
 		name: 'sport-page',
-		
-		data: function () {
-			return {
-				iframeSrc: ''
+
+		mounted: function () {
+			//在组件中使用 this.$store.dispatch('xxx') 分发 action
+			if (this.loginStatus) {   //如果已登录
+				if (!this.sportUrl) {
+					this.$store.dispatch('getSportUrl');
+				}
+			} else {
+				if (!this.sportTryUrl) {
+					this.$store.dispatch('getSportTryUrl');
+				}
 			}
 		},
 
-		created: function () {
-			this.getUrl();
-		},
+	  	computed: mapState({
+	  		loginStatus: function (state) {
+	  			return state.loginStatus;
+	  		},
 
-		methods: {
-			getUrl: function () {
-		    	var that  = this;
-		    	var opt   =  {
-					url: Config.urls.getGameLaunchUrl,
-					data: {
-						gamePlatform: 'T188',
-						gameType: 'sport'
-					}
-				};
-				
-				var callback = function (json) {
-					if (json.StatusCode && json.StatusCode != 0) {
-						alert(json.Message);
-						return;
-					}
+	  		sportUrl: function (state) {
+	  			return state.sportUrl;
+	  		},
 
-					that.$refs.iframe.src = json.data;
-				};
+	  		sportTryUrl: function (state) {
+	  			return state.sportTryUrl;
+	  		},
 
-				Service.get(opt, callback);
-			}
-		}
+	    	t188Url: function (state) {
+				if (this.loginStatus) {
+					return this.sportUrl;
+				} else {
+					return this.sportTryUrl;
+				}
+	    	}
+	  	})
 	}
 </script>
 

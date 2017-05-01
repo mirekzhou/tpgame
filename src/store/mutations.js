@@ -1,5 +1,6 @@
 /*
 **  【1】 mutation必须同步执行, 所以异步请求不能写在mutation里面
+**  【2】 mutation的参数是state
 */
 
 export default {
@@ -17,5 +18,14 @@ export default {
 
 	SET_SPORT_TRY_URL: function (state, opt) {
 		state.sportTryUrl = opt.url;
+		console.log('sportTryUrl = ' + state.sportTryUrl);
+	},
+
+	SET_PHONE_BETTING_URL: function (state, opt) {
+		state.phoneBettingUrl = opt.url;
+	},
+
+	SET_PHONE_BETTING_TRY_URL: function (state, opt) {
+		state.phoneBettingTryUrl = opt.url;
 	}
 };

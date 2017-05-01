@@ -16,7 +16,7 @@ export default {
         		timeout: Config.timeout,
         		withCredentials: true,
         	}).then(function (response) {
-        		callback(response);
+        		callback(response.data);
         	}).catch(function (error) {
         		console.log('error = ' + JSON.stringify(error));
         	});
