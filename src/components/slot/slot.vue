@@ -9,19 +9,19 @@
 				<div class="middle-zone">
 				    <swiper :options="swiperOption">
 				        <swiper-slide>
-				        	<img src="../../assets/home-page-banner1.png">
+				        	<img src="../../assets/slot-banner.png">
 				        </swiper-slide>
 
 				        <swiper-slide>
-				        	<img src="../../assets/home-page-banner2.png">
+				        	<img src="../../assets/slot-banner.png">
 				        </swiper-slide>
 
 				        <swiper-slide>
-				        	<img src="../../assets/home-page-banner1.png">
+				        	<img src="../../assets/slot-banner.png">
 				        </swiper-slide>
 
 				        <swiper-slide>
-				        	<img src="../../assets/home-page-banner2.png">
+				        	<img src="../../assets/slot-banner.png">
 				        </swiper-slide>
 				    </swiper>
 				</div>
