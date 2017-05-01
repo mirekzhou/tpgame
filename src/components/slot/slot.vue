@@ -72,7 +72,9 @@
 <style lang="scss" scoped>
 	.slot-page {
 		.swiper-zone {
+			display: flex;
 			position: relative;
+			width: 100%;
 
 			.left-zone {
 				position: absolute;
@@ -99,12 +101,12 @@
 
 			.middle-zone {
 				position: absolute;
-				left: 60px;
-				right: 60px;
+				left: 0;
+				right: 0;
 				top: 0;
 				height: 100%;
 
-				.swiper-slide-wrapper {
+				.swiper-slide {
 					img {
 						width: 100%;
 					}
