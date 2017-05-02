@@ -17,7 +17,7 @@
 				<div class="platform-zone-wrapper">
 					<ul>
 						<li v-for="platform in platformList" v-bind:class="[platform.className]" data-platform="platform.value">
-							<!-- {{platform.text}} -->
+							<span></span>
 						</li>
 					</ul>
 				</div>
@@ -262,6 +262,7 @@
 	$gameRightWidth          :    $slotWrapperWidth * 230 / $slotWrapperL;
 	$platformZoneHeight      :    $slotWrapperWidth * 66 / $slotWrapperL;
 	$categoryZoneHeight      :    $slotWrapperWidth * 66 / $slotWrapperL;
+	$platformItemWidth       :    $slotWrapperWidth * 140 / $slotWrapperL;
 
 	.slot-page {
 		.swiper-zone {
@@ -314,7 +315,7 @@
 		}
 
 		.platform-zone {
-			background-color: rgba(0, 0, 0, .5);
+			background-color: rgba(0, 0, 0, .7);
 			height: $platformZoneHeight;
 			margin-top: 0 - $platformZoneHeight;
 			position: relative;
@@ -327,70 +328,103 @@
 
 				ul {
 					list-style: none;
+					display: flex;
 
 					li {
+						flex: 1;
 						cursor: pointer;
 						display: inline-block;
 						height: $platformZoneHeight;
 						line-height: $platformZoneHeight;
-						width: 140px;
-						text-align: center;
-						background-image: url(../../assets/platforms.png);
+						text-align: left;
+
+						span {
+							background-image: url(../../assets/platforms.png);
+							height: $platformZoneHeight;
+							display: inline-block;
+							width: $platformItemWidth;
+						}
+
+						&:hover {
+							background-image: url(../../assets/aiming.png);
+							background-size: $platformItemWidth $platformZoneHeight;
+							background-repeat: no-repeat;
+						}
+					}
+
+					.active {
+						background-image: url(../../assets/aiming.png);
+						background-size: $platformItemWidth $platformZoneHeight;
+						background-repeat: no-repeat;
 					}
 
 					.platform-PP {
-						background-position: -420px -1px;
+						span {
+							background-position: -420px -1px;
 
-						&:hover {
-							background-position: -420px -67px;
+							&:hover {
+								background-position: -420px -67px;
+							}
 						}
 					}
 
 					.platform-PT {
-						background-position: -280px -1px;
+						span {
+							background-position: -280px -1px;
 
-						&:hover {
-							background-position: -280px -67px;
+							&:hover {
+								background-position: -280px -67px;
+							}
 						}
 					}
 
 					.platform-BBIN {
-						background-position: -140px -1px;
+						span {
+							background-position: -140px -1px;
 
-						&:hover {
-							background-position: -140px -67px;
+							&:hover {
+								background-position: -140px -67px;
+							}
 						}
 					}
 
 					.platform-MG {
-						background-position: -560px -1px;
+						span {
+							background-position: -560px -1px;
 
-						&:hover {
-							background-position: -560px -67px;
+							&:hover {
+								background-position: -560px -67px;
+							}
 						}
 					}
 
 					.platform-AG {
-						background-position: 0 -1px;
+						span {
+							background-position: 0 -1px;
 
-						&:hover {
-							background-position: 0 -67px;
+							&:hover {
+								background-position: 0 -67px;
+							}
 						}
 					}
 
 					.platform-TTG {
-						background-position: -700px -1px;
+						span {
+							background-position: -700px -1px;
 
-						&:hover {
-							background-position: -700px -67px;
+							&:hover {
+								background-position: -700px -67px;
+							}
 						}
 					}
 
 					.platform-MT {
-						background-position: -700px -1px;
+						span {
+							background-position: -700px -1px;
 
-						&:hover {
-							background-position: -700px -67px;
+							&:hover {
+								background-position: -700px -67px;
+							}
 						}
 					}
 				}
