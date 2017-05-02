@@ -17,7 +17,7 @@
 				<div class="platform-zone-wrapper">
 					<ul>
 						<li v-for="platform in platformList" v-bind:class="[platform.className]" data-platform="platform.value">
-							{{platform.text}}
+							<!-- {{platform.text}} -->
 						</li>
 					</ul>
 				</div>
@@ -26,7 +26,11 @@
 			<div class="category-zone">
 				<div class="category-zone-wrapper">
 					<ul>
-						<li v-for="category in categoryList" class="active" data-id="category.Id" data-code="category.Code">
+						<li v-for="category in categoryList" 
+							v-bind:class="[category.active? 'active': '']" 
+							data-id="category.Id" 
+							data-code="category.Code">
+
 							<span>{{category.Name}}</span>
 						</li>
 					</ul>
@@ -108,6 +112,7 @@
 		        		value: 'MT'
 		        	}
 		        ],
+
 		        categoryList      :  [],
 		        gameList          :  [],
 		        favoriteGameList  :  []
@@ -183,6 +188,7 @@
 			},
 
 			getCategoryList: function () {
+				var i;
 				var opt;
 				var callback;
 				var that = this;
@@ -206,6 +212,16 @@
 						alert(json.Message);
 						return;
 					}
+
+					for (i = 0; i < json.length; i++) {
+						if (i == 0) {
+							json[i].active = true;
+						} else {
+							json[i].active = false;
+						}
+					}
+
+					console.log(JSON.stringify(json));
 
 					localStorage.setItem('e-game-category', JSON.stringify(json));
 		        	that.categoryList = json;
@@ -298,9 +314,11 @@
 		}
 
 		.platform-zone {
-			background-color: rgba(0, 0, 0, 1);
+			background-color: rgba(0, 0, 0, .5);
 			height: $platformZoneHeight;
 			margin-top: 0 - $platformZoneHeight;
+			position: relative;
+			z-index: 2;
 			width: 100%;
 
 			.platform-zone-wrapper {
@@ -317,6 +335,63 @@
 						line-height: $platformZoneHeight;
 						width: 140px;
 						text-align: center;
+						background-image: url(../../assets/platforms.png);
+					}
+
+					.platform-PP {
+						background-position: -420px -1px;
+
+						&:hover {
+							background-position: -420px -67px;
+						}
+					}
+
+					.platform-PT {
+						background-position: -280px -1px;
+
+						&:hover {
+							background-position: -280px -67px;
+						}
+					}
+
+					.platform-BBIN {
+						background-position: -140px -1px;
+
+						&:hover {
+							background-position: -140px -67px;
+						}
+					}
+
+					.platform-MG {
+						background-position: -560px -1px;
+
+						&:hover {
+							background-position: -560px -67px;
+						}
+					}
+
+					.platform-AG {
+						background-position: 0 -1px;
+
+						&:hover {
+							background-position: 0 -67px;
+						}
+					}
+
+					.platform-TTG {
+						background-position: -700px -1px;
+
+						&:hover {
+							background-position: -700px -67px;
+						}
+					}
+
+					.platform-MT {
+						background-position: -700px -1px;
+
+						&:hover {
+							background-position: -700px -67px;
+						}
 					}
 				}
 			}
