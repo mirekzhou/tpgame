@@ -30,6 +30,7 @@
 		width: $inputSearchWidth;
 		height: $inputSearchHeight;
 		line-height: $inputSearchHeight;
+		position: relative;
 
 		input {
 			background: none;
@@ -41,6 +42,18 @@
 			vertical-align: top;
 			width: 100%;
 			text-indent: 12px;
+		}
+
+		.icon {
+			background-image: url(../../assets/common.png);
+			background-position: -196px -83px;
+			cursor: pointer;
+			display: inline-block;
+    		position: absolute;
+    		right: 20px;
+    		top: ($inputSearchHeight - 20px) / 2;
+			width: 17px;
+			height: 20px;
 		}
 	}
 </style>

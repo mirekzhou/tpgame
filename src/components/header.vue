@@ -72,7 +72,7 @@
 		}
 
 		.nav-section {
-			background-color: rgba(25, 21, 44, .8);
+			background-color: rgba(25, 21, 44, 1);
 			height: $headerNavSectionHeight;
 			line-height: $headerNavSectionHeight;
 
