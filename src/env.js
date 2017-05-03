@@ -1,3 +1,3 @@
 export default {
-	VEB_ENV: 'debug'
+	VEB_ENV: 'production'
 };

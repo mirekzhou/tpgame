@@ -49,9 +49,10 @@
 		position: fixed;
 		top: 0;
 		left: 0;
+		z-index: 3;
 
 		.top-section {
-			background-color: rgba(0,0,0, .4);
+			background-color: rgba(30, 25, 50, 1);
 			font-size: 22px;
 			font-weight: bold;
 			height: $headerTopSectionHeight;
@@ -71,7 +72,7 @@
 		}
 
 		.nav-section {
-			background-color: rgba(0,0,0, .2);
+			background-color: rgba(25, 21, 44, .8);
 			height: $headerNavSectionHeight;
 			line-height: $headerNavSectionHeight;
 

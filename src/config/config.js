@@ -50,7 +50,7 @@ export default {
 
 		getAds: domain + 'api/News/GetAds?',
 
-		getJackpotsGames: domain + 'api/Game/GetJackpotsGames?',   //获取PT奖金池游戏
+		getJackpotsGames: domain + 'api/Game/GetJackpotsGames',   //获取PT奖金池游戏
 		getGameCategories: domain + 'api/Game/GetCategories?',   //获取电子游艺游戏类型
 		getGameList: domain + 'api/Game/GetList?',              //获取电子游艺游戏列表
 		getGameLaunchUrl: domain + 'api/Game/GetGameLaunchUrl',  //游戏试玩地址
