@@ -25,7 +25,7 @@
 				if (this.list.length > 6) {
 					var that     = this;
 					var top      = (0 - (this.list.length - 6) * 70) + 'px';
-					var duration = (this.list.length - 6) * 500;
+					var duration = (this.list.length - 6) * 1500;
 
 					this.$nextTick(function () {
 						var animate = function () {
