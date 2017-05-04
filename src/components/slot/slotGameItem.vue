@@ -7,8 +7,8 @@
 
 		<div class="bottom-zone">
 			<span class="name">{{cnname}}</span>
-			<span class="star">
-				<div class="star-icon"></div>
+			<span class="star" v-on:click="starClicked">
+				<div class="star-icon" v-bind:class="collectFlag?'collected': ''"></div>
 			</span>
 		</div>
 	</div>
@@ -30,13 +30,14 @@
 			'collected',     //是否已经被收藏
 			'cnname',        //游戏中文名称
 			'showJackpots',  //是否显示奖金池
-			'jackpotUrl',                //jackpot奖金池url
-			'imageUrl'  //游戏图片url
+			'jackpotUrl',    //jackpot奖金池url
+			'imageUrl'       //游戏图片url
 		],
 
 		data: function () {
 			return {
-				imgUrl:  'url(' + Config.imageServer + this.imageUrl + ')'
+				imgUrl:  'url(' + Config.imageServer + this.imageUrl + ')',
+				collectFlag: this.collected
 			}
 		},
 
@@ -44,6 +45,9 @@
 		},
 
 		methods: {
+			starClicked: function () {
+				this.collectFlag = !this.collectFlag;
+			}
 		},
 
 		filters: {
@@ -130,6 +134,20 @@
 				flex: 1;
 				padding-right: 5px;
 
+				@keyframes star-animate {
+					0% {
+						transform: scale(1)
+					},
+
+					50% {
+						transform: scale(2)
+					},
+
+					100% {
+						transform: scale(1)
+					}
+				}
+
 				.star-icon {
 					background-image: url(../../assets/common.png);
 					background-position: -25px -87px;
@@ -138,6 +156,7 @@
 				}
 
 				.collected {
+					animation: star-animate .5s linear;
 					background-position: -4px -87px;
 				}
 			}

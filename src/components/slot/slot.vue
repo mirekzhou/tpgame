@@ -6,7 +6,7 @@
 
 			    <swiper :options="swiperOption">
 			        <swiper-slide v-for="banner in banners">
-			        	<img :src="banner">
+			        	<img :src="banner" style="width:100% !important">
 			        </swiper-slide>
 			    </swiper>
 
@@ -44,15 +44,16 @@
 			<div class="game-zone">
 				<div class="game-zone-wrapper">
 					<div class="game-zone-left">
-						<slot-game-item v-for         =  "item in gameList"
-										:gameId       =  "item.Id"
+						<slot-game-item v-for          =  "item in gameList"
+										:gameId        =  "item.Id"
 										:identify      =  "item.GameIdentify"
 										:isTry         =  "item.IsTry"
 										:gameType      =  "item.GameTypeText_EN"
 										:platform      =  "item.Api.GamePlatform"
 										:cnname        =  "item.Title"
 										:showJackpots  =  "item.ShowJackpots"
-										:imageUrl      =  "item.ImageUrl">
+										:imageUrl      =  "item.ImageUrl"
+										:collected     =  "false">
 						</slot-game-item>
 					</div>
 
@@ -92,7 +93,8 @@
 		          	paginationClickable: true,
 			        prevButton:'.left-arrow',
 			        nextButton:'.right-arrow',
-			        spaceBetween: 100
+			        spaceBetween: 100,
+			        autoHeight: true
 		        },
 
 		        banners: [
@@ -442,12 +444,6 @@
 
 			.middle-zone {
 				height: auto;
-
-				.swiper-slide {
-					img {
-						width: 100%;
-					}
-				}
 			}
 
 			.right-arrow {
