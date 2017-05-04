@@ -1,6 +1,6 @@
 <template>
 	<div class="marquee">
-		<ul v-bind:style="{transitionDuration: duration, top: top}">
+		<ul ref="ulSlider">
 			<li v-for="item in list">
 				<div class="name">{{item.name}}</div>
 				<div class="value">111,112.00</div>
@@ -10,31 +10,44 @@
 </template>
 
 <script>
+	import Velocity from 'velocity-animate';
+
 	export default {
 		name: 'marquee',
 
 		data: function () {
 			return {
-				top: '',
-				duration: ''
 			}
 		},
 
 		watch: {
-			list: function () {
-				console.log('this.list.length = ' + this.list.length);
-				if (this.list.length > 0) {
-					if (this.list.length > 6) {
-						this.duration = (this.list.length - 6) * 1 + 's';
-						this.top      = (0 - (this.list.length - 6) * 70) + 'px';
-					} else {
-						this.duration = '0s';
-						this.top      = '0px';
-					}
-				}
+			list: function (newValue, oldValue) {
+				if (this.list.length > 6) {
+					var that     = this;
+					var top      = (0 - (this.list.length - 6) * 70) + 'px';
+					var duration = (this.list.length - 6) * 500;
 
-				console.log('this.top = ' + this.top);
-				console.log('this.duration = ' + this.duration);
+					this.$nextTick(function () {
+						var animate = function () {
+							Velocity(
+								that.$refs.ulSlider, 
+								{
+									top: top
+								}, 
+								{
+									duration: duration,
+									complete: function () {
+										Velocity(that.$refs.ulSlider, {top: '0px'}, {duration: 0});
+										animate();
+									}
+								}
+							);
+						};
+
+						animate();
+					});
+					
+				}
 			}
 		},
 
