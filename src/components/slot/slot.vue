@@ -104,7 +104,7 @@
 		        	slotBanner
 		        ],
 
-		        platformList :  [
+		        platformList :  [   //平台列表
 		        	{
 		        		className: 'platform-pp',
 		        		text: 'PP电子',
@@ -134,16 +134,15 @@
 		        		className: 'platform-ttg',
 		        		text: 'TTG电子',
 		        		value: 'TTG'
-		        	},
-		        	{
+		        	}
+/*		        	{
 		        		className: 'platform-mt',
 		        		text: 'MT电子',
 		        		value: 'MT'
-		        	}            //平台列表
+		        	}*/
 		        ],
 
 		        slotSmallAd,
-
 		        categoryList      :  [],       //category列表
 		        gameList          :  [],       //当前游戏列表
 		        jackpotGameList   :  [],       //奖金池游戏列表

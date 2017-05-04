@@ -1,6 +1,6 @@
 <template>
 	<div class="marquee">
-		<ul>
+		<ul v-bind:style="{transitionDuration: duration, top: top}">
 			<li v-for="item in list">
 				<div class="name">{{item.name}}</div>
 				<div class="value">111,112.00</div>
@@ -12,6 +12,31 @@
 <script>
 	export default {
 		name: 'marquee',
+
+		data: function () {
+			return {
+				top: '',
+				duration: ''
+			}
+		},
+
+		watch: {
+			list: function () {
+				console.log('this.list.length = ' + this.list.length);
+				if (this.list.length > 0) {
+					if (this.list.length > 6) {
+						this.duration = (this.list.length - 6) * 1 + 's';
+						this.top      = (0 - (this.list.length - 6) * 70) + 'px';
+					} else {
+						this.duration = '0s';
+						this.top      = '0px';
+					}
+				}
+
+				console.log('this.top = ' + this.top);
+				console.log('this.duration = ' + this.duration);
+			}
+		},
 
 		props: [
 			'list'
@@ -34,12 +59,18 @@
 		width: $marqueeWidth;
 		height: $marqueeItemHeight * 6;
 		overflow: hidden;
+		position: relative;
 
 		ul {
 			background-color: #332d4e;
 			box-sizing: border-box;
 			list-style: none;
 			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			transition-property: top;
+			transition-timing-function: linear;
 
 			li {
 				box-sizing: border-box;
