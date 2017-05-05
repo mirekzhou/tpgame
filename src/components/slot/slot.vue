@@ -15,14 +15,13 @@
 
 			<div class="platform-zone">
 				<div class="platform-zone-wrapper">
-					<ul>
-						<li v-for="platform in platformList" 
-							v-bind:class="[platform.className]" 
-							v-bind:data-platform="platform.value">
-
-							<span></span>
-						</li>
-					</ul>
+					<div class="platforms">
+						<platform-item 	v-for       =  "item in platformList"
+										:platform   =  "item.value"
+										:name       =  "item.text"
+										:className  =  "item.className">
+						</platform-item>
+					</div>
 				</div>
 			</div>
 
@@ -74,6 +73,7 @@
 <script>
 	import { mapState } from 'vuex';
 	import { swiper, swiperSlide } from 'vue-awesome-swiper';
+	import platformItem from './platformItem';
 	import slotGameItem from './slotGameItem';
 	import searchInput from './searchInput';
 	import slotTitle from './slotTitle';
@@ -135,11 +135,6 @@
 		        		text: 'TTG电子',
 		        		value: 'TTG'
 		        	}
-/*		        	{
-		        		className: 'platform-mt',
-		        		text: 'MT电子',
-		        		value: 'MT'
-		        	}*/
 		        ],
 
 		        slotSmallAd,
@@ -162,6 +157,7 @@
 			'search-input'   : searchInput,
 			'slot-title'     : slotTitle,
 			'marquee'        : marquee,
+			'platform-item'  : platformItem
 		},
 
 		methods: {
@@ -414,7 +410,6 @@
 	$gameRightWidth          :    $slotWrapperWidth * 235 / $slotWrapperL;
 	$platformZoneHeight      :    $slotWrapperWidth * 66 / $slotWrapperL;
 	$categoryZoneHeight      :    $slotWrapperWidth * 66 / $slotWrapperL;
-	$platformItemWidth       :    $slotWrapperWidth * 140 / $slotWrapperL;
 	$ptJackpotWidth          :    $slotWrapperWidth * 230 / $slotWrapperL;
 	$ptJackpotHeight         :    $slotWrapperWidth * 80 / $slotWrapperL;
 
@@ -474,114 +469,9 @@
 				width: $slotWrapperWidth;
 				margin: 0 auto;
 
-				ul {
+				.platforms {
 					list-style: none;
 					display: flex;
-
-					li {
-						flex: 1;
-						cursor: pointer;
-						display: inline-block;
-						height: $platformZoneHeight;
-						line-height: $platformZoneHeight;
-						text-align: center;
-						padding: 1px;
-
-						span {
-							background-image: url(../../assets/platforms.png);
-							height: $platformZoneHeight - 8px;
-							display: inline-block;
-							width: $platformItemWidth;
-						}
-
-						&:hover {
-							background-image: url(../../assets/aiming.png);
-							background-size: $platformItemWidth $platformZoneHeight;
-							background-repeat: no-repeat;
-						}
-					}
-
-					.active {
-						background-image: url(../../assets/aiming.png);
-						background-size: $platformItemWidth $platformZoneHeight;
-						background-repeat: no-repeat;
-					}
-
-					.selected {
-						background-image: url(../../assets/aiming.png);
-						background-size: $platformItemWidth $platformZoneHeight;
-						background-repeat: no-repeat;
-					}
-
-					.platform-pp {
-						span {
-							background-position: -420px -1px;
-
-							&:hover {
-								background-position: -420px -67px;
-							}
-						}
-					}
-
-					.platform-pt {
-						span {
-							background-position: -280px -1px;
-
-							&:hover {
-								background-position: -280px -67px;
-							}
-						}
-					}
-
-					.platform-bbin {
-						span {
-							background-position: -140px -1px;
-
-							&:hover {
-								background-position: -140px -67px;
-							}
-						}
-					}
-
-					.platform-mg {
-						span {
-							background-position: -560px -1px;
-
-							&:hover {
-								background-position: -560px -67px;
-							}
-						}
-					}
-
-					.platform-ag {
-						span {
-							background-position: 0 -1px;
-
-							&:hover {
-								background-position: 0 -67px;
-							}
-						}
-					}
-
-					.platform-ttg {
-						span {
-							background-position: -700px -1px;
-
-							&:hover {
-								background-position: -700px -67px;
-							}
-						}
-					}
-
-					.platform-mt {
-						span {
-							background-position: -700px -1px;
-
-							&:hover {
-								background-position: -700px -67px;
-							}
-						}
-					}
 				}
 			}
 		}
