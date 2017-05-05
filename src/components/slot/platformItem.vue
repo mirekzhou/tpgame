@@ -53,6 +53,20 @@
 				transition: opacity .33s;
 			}
 
+			&:after {
+				content: '';
+			    opacity: 0;
+			    filter: alpha(opacity=0);
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    z-index: -1;
+			    background-image: url(../../assets/common.png);
+			    background-position: -1px -309px;
+			}
+
 			.corners-outer {
 				position: absolute;
 				top: 0;
@@ -60,7 +74,6 @@
 				bottom: 0;
 				left: 0;
 				z-index: inherit;
-
 				opacity: 0;
 			    filter: alpha(opacity=0);
 			    transition: opacity 0.25s;
@@ -223,6 +236,10 @@
 			}
 
 			&:hover {
+				&:after {
+					opacity: 1;
+				}
+
 				.corners-outer {
 					opacity: 1;
 				    filter: alpha(opacity=100);
