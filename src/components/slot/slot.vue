@@ -16,10 +16,12 @@
 			<div class="platform-zone">
 				<div class="platform-zone-wrapper">
 					<div class="platforms">
-						<platform-item 	v-for       =  "item in platformList"
-										:platform   =  "item.value"
-										:name       =  "item.text"
-										:className  =  "item.className">
+						<platform-item 	v-for             =  "item in platformList"
+										:platform         =  "item.value"
+										:name             =  "item.text"
+										:className        =  "item.className"
+										:selected         =  "item.value == platform?true: false"
+										v-on:itemClicked  =  "platformItemClicked">
 						</platform-item>
 					</div>
 				</div>
@@ -142,7 +144,7 @@
 		        gameList          :  [],       //当前游戏列表
 		        jackpotGameList   :  [],       //奖金池游戏列表
 		        collectionList    :  [],       //收藏列表
-		        platform          :  'pp',     //当前platform
+		        platform          :  'PP',     //当前platform
 		        categoryId        :  '',       //当前category Id
 		        categoryCode      :  '',       //当前category code
 				pageIndex         :  0,        //当前页
@@ -347,6 +349,10 @@
 
 			categoryItemClicked: function (event) {
 				this.categoryId = event.currentTarget.dataset.id;
+			},
+
+			platformItemClicked: function (platform) {
+				this.platform = platform;
 			},
 
 			formatJackpotsUrl: function (data) {
