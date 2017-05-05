@@ -1,6 +1,6 @@
 <template>
 	<div class="marquee">
-		<ul ref="ulSlider">
+		<ul ref="ulSlider" v-on:mouseover="mouseover" v-on:mouseout="mouseout">
 			<li v-for="item in list">
 				<div class="name">{{item.name}}</div>
 				<div class="value">111,112.00</div>
@@ -55,8 +55,14 @@
 			'list'
 		],
 
-		mounted: function () {
+		methods: {
+			mouseover: function () {
+				Velocity(this.$refs.ulSlider, 'pause');
+			},
 
+			mouseout: function () {
+				Velocity(this.$refs.ulSlider, 'resume');
+			}
 		}
 	}
 </script>
@@ -107,6 +113,10 @@
 					line-height: $marqueeItemHeight;
 					text-align: left;
 				}
+			}
+
+			&:hover {
+				animation-play-state: paused !important;
 			}
 		}
 	}
