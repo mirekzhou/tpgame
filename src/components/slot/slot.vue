@@ -464,7 +464,7 @@
 		}
 
 		.platform-zone {
-			background-color: rgba(0, 0, 0, .7);
+			background-color: rgba(29, 24, 55, .95);
 			height: $platformZoneHeight;
 			margin-top: 0 - $platformZoneHeight;
 			position: relative;
