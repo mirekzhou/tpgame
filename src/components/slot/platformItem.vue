@@ -354,7 +354,7 @@
 			&:hover {
 				&:after {
 					opacity: 1;
-					background-position: 1.4px -182px;
+					background-position: 1.4px -110px;
 				}
 
 				.corners-outer {
@@ -441,7 +441,7 @@
 		a {
 			&:after {
 				opacity: 1;
-				background-position: 1.4px -110px;
+				background-position: 1.4px -182px;
 			}
 
 			.corners-outer {
