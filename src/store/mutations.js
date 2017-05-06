@@ -27,5 +27,10 @@ export default {
 
 	SET_PHONE_BETTING_TRY_URL: function (state, opt) {
 		state.phoneBettingTryUrl = opt.url;
+	},
+
+	SET_LOGIN_DIALOG_STATUS: function (state, opt) {
+		state.showLoginDialog = opt.status;
+		console.log('state.showLoginDialog = ' + state.showLoginDialog);
 	}
 };

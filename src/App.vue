@@ -8,11 +8,14 @@
 		    </keep-alive>
 		</transition>
 		
+		<login></login>
 		<!-- <my-footer></my-footer> -->
 	</div>
 </template>
 
 <script>
+	import { mapActions } from 'vuex';
+	import login from './components/login';
 	import header from './components/header.vue';
 	import footer from './components/footer.vue';
 
@@ -25,7 +28,8 @@
 
 		components: {
 			'my-header'  : header,
-			'my-footer'  : footer
+			'my-footer'  : footer,
+			'login'      : login
 		}
 	}
 </script>

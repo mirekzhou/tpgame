@@ -1,37 +1,52 @@
 <template>
 	<div class="login">
-		<my-dialog :showDialog="showLogin">
-			<div slot="header">
-				伟易博
+		<my-dialog :styleObject="dialogStyleObject">
+			<div slot="header" class="login-header" :showDialog="showDialog">
+				<div class="title">伟易博</div>
+				<div class="register">
+					<span>还没有账号？</span>
+					<span class="register-now">立即注册</span>
+				</div>
+				<span class="close" v-on:click="closeDialog">×</span>
 			</div>
 
-			<div slot="body">
-<!-- 				<span>用户名</span>
-				<normal-input :placeholder="请输入您的用户名"></normal-input>
-				<span>密码</span>
-				<normal-input :placeholder="请输入您的密码"></normal-input> -->
+			<div slot="body" class="login-body">
+				<span class="input-title">用户名</span>
+				<normal-input myPlaceholder="请输入您的用户名" :styleObject="inputStyleObject"></normal-input>
+				<span class="input-title">密码</span>
+				<normal-input myPlaceholder="请输入您的密码" :styleObject="inputStyleObject"></normal-input>
+				<div class="forget-password">忘记密码？</div>
 			</div>
 
-			<div slot="footer">
-				我是Footer
+			<div slot="footer" class="login-footer">
+				<div class="button" v-on:click="goLogin">立即登录</div>
 			</div>
 		</my-dialog>
 	</div>
 </template>
 
 <script>
+	import { mapActions } from 'vuex';
+	import { mapState } from 'vuex';
 	import dialog from '../plugins/dialog';
 	import input from '../plugins/input';
 
 	export default {
 		name: 'login',
-
-		props: [
-			'showLogin'
-		],
 		
 		data: function () {
 			return {
+				dialogStyleObject: {
+					width: '380px',
+					height: '450px',
+					background: 'linear-gradient(to top, #3c3560 40%, #4f4779)',
+				},
+
+				inputStyleObject: {
+					width: '320px',
+					height: '32px',
+					border: '1px solid #5d5780',
+				}
 			}
 		},
 
@@ -41,11 +56,108 @@
 		},
 
 		methods: {
-		}
+			goLogin: function () {
+				this.$store.dispatch('switchLoginDialog', {status: false});
+			},
+
+			closeDialog: function () {
+				this.$store.dispatch('switchLoginDialog', {status: false});
+			}
+		},
+
+	  	computed: mapState({
+	  		showDialog: function (state) {
+	  			console.log('~~state.showLoginDialog = ' + state.showLoginDialog);
+	  			return state.showLoginDialog;
+	  		}
+	  	}),
+
+	  	watch: {
+	  		showDialog: function () {
+	  			console.log('~~this.showDialog = ' + this.showDialog);
+	  		}
+	  	}
 	}
 </script>
 
 <style lang="scss" scoped>
 	.login {
+		width: 380px;
+		height: auto;
+
+		.login-header {
+			position: relative;
+			height: 180px;
+
+			.title {
+				color: #e9e8ec;
+			    font-size: 40px;
+			    font-weight: bold;
+				text-align: center;
+				padding-top: 62px;
+			}
+
+			.register {
+				font-size: 13px;
+				text-align: center;
+				margin-top: 12px;
+
+				.register-now {
+					color: #e9e8ec;
+					cursor: pointer;
+				}
+			}
+
+			.close {
+				cursor: pointer;
+				position: absolute;
+				top: 5px;
+				right: 15px;
+				font-size: 35px;
+
+				&:hover {
+					color: #e9e8ec;
+				}
+			}
+		}
+
+		.login-body {
+			padding: 0 30px;
+			font-size: 14px;
+
+			.input-title {
+				display: inline-block;
+				margin-bottom: 10px;
+			}
+
+			.input {
+				margin-bottom: 20px;
+			}
+
+			.forget-password {
+				width: 100%;
+				text-align: right;
+				cursor: pointer;
+
+				&:hover {
+					color: #e9e8ec;
+				}
+			}
+		}
+
+		.login-footer {
+			padding: 0 30px;
+
+			.button {
+				background-color: #518743;
+				color: #FFF;
+				font-size: 14px;
+				width: 320px;
+				height: 38px;
+				line-height: 38px;
+				text-align: center;
+				margin-top: 15px;
+			}
+		}
 	}
 </style>

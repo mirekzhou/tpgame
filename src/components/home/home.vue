@@ -91,13 +91,10 @@
 
 			<page-naver></page-naver>
 		</div>
-
-		<login :showLogin="showLogin"></login>
 	</div>
 </template>
 
 <script>
-	import login from '../login';
 	import pageNaver from './pageNaver';
 	import { swiper, swiperSlide } from 'vue-awesome-swiper';
 
@@ -114,20 +111,20 @@
 			        spaceBetween: 100
 		        },
 
-		        showLogin: false
+		        x: true
 			}
 		},
 
 		components: {
 			'swiper': swiper,
 			'swiper-slide': swiperSlide,
-			'page-naver' : pageNaver,
-			'login': login
+			'page-naver' : pageNaver
 		},
 
 		methods: {
 			showLoginDialog: function () {
-				this.showLogin = !this.showLogin;
+				this.x = !this.x;
+				this.$store.dispatch('switchLoginDialog', {status: this.x});
 			}
 		}
 	}

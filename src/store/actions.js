@@ -1,8 +1,8 @@
 /*
-**  ã€1ã€‘ Actionæäº¤çš„æ˜¯mutation, è€Œä¸æ˜¯ç›´æ¥å˜æ›´çŠ¶æ€
-**  ã€2ã€‘ Actionå¯ä»¥åŒ…å«ä»»æ„å¼‚æ­¥æ“ä½œ
-**  ã€3ã€‘ Actionçš„å‚æ•°æ˜¯context
-**  ã€4ã€‘ åœ¨ç»„ä»¶ä¸­ä½¿ç”¨ this.$store.dispatch('xxx') åˆ†å‘ action
+**  ¡¾1¡¿ ActionÌá½»µÄÊÇmutation, ¶ø²»ÊÇÖ±½Ó±ä¸ü×´Ì¬
+**  ¡¾2¡¿ Action¿ÉÒÔ°üº¬ÈÎÒâÒì²½²Ù×÷
+**  ¡¾3¡¿ ActionµÄ²ÎÊıÊÇcontext
+**  ¡¾4¡¿ ÔÚ×é¼şÖĞÊ¹ÓÃ this.$store.dispatch('xxx') ·Ö·¢ action
 */
 
 import Config from '../config/config.js';
@@ -19,22 +19,22 @@ export default {
 			status = (data == 0)?true : false;
 			commit('SET_LOGIN_STATUS', {status: status});
 
-			if (status) {    //å¦‚æœå·²ç™»å½•
-				dispatch('getUserInfo');           //è·å–ç™»å½•ç”¨æˆ·ä¿¡æ¯
+			if (status) {    //Èç¹ûÒÑµÇÂ¼
+				dispatch('getUserInfo');           //»ñÈ¡µÇÂ¼ÓÃ»§ĞÅÏ¢
 
-				if (!state.sportUrl) {             //è·å–ä½“è‚²url
+				if (!state.sportUrl) {             //»ñÈ¡ÌåÓıurl
 					dispatch('getSportUrl');
 				}
 
-				if (!state.phoneBettingUrl) {      //è·å–ç”µæŠ•url
+				if (!state.phoneBettingUrl) {      //»ñÈ¡µçÍ¶url
 					dispatch('getPhoneBettingUrl');
 				}
-			} else {         //å¦‚æœæœªç™»å½•
-				if (!state.sportTryUrl) {          //è·å–æœªç™»å½•ä½“è‚²url
+			} else {         //Èç¹ûÎ´µÇÂ¼
+				if (!state.sportTryUrl) {          //»ñÈ¡Î´µÇÂ¼ÌåÓıurl
 					dispatch('getSportTryUrl');
 				}
 
-				if (!state.phoneBettingTryUrl) {   //è·å–æœªç™»å½•ç”µurl
+				if (!state.phoneBettingTryUrl) {   //»ñÈ¡Î´µÇÂ¼µçurl
 					dispatch('getPhoneBettingTryUrl');
 				}
 			}
@@ -106,4 +106,9 @@ export default {
 			commit('SET_PHONE_BETTING_TRY_URL', {url: data});
 		});
 	},
+
+	switchLoginDialog: function ({commit}, opt) {
+		console.log('opt = ' + JSON.stringify(opt));
+		commit('SET_LOGIN_DIALOG_STATUS', {status: opt.status});
+	}
 };

@@ -1,10 +1,10 @@
 <template>
-	<div class="input" v-bind:style="{width: myWidth + 'px', height:myHeight + 'px'}">
+	<div class="input">
 		<input ref="input"
 			   v-bind:value="value"
 			   v-on:input="updateValue($event.target.value)"
 			   v-bind:placeholder="myPlaceholder" 
-			   v-bind:style="{width: myWidth + 'px', height:myHeight + 'px'}" />
+			   v-bind:style="styleObject" />
 	</div>
 </template>
 
@@ -12,12 +12,11 @@
 	export default {
 		name: 'my-input',
 
-		props: {
-			placeholder: [String],
-			myWidth: [Number, String],
-			myHeight: [Number, String],
-			value: [Number, String]
-		},
+		props: [
+			'styleObject',
+			'myPlaceholder',
+			'value'
+		],
 		
 		data: function () {
 			return {
@@ -44,7 +43,9 @@
 		input {
 			background: none;
 			border: 0;
+			color: #9992ae;
 			outline: none;
+			text-indent: 8px;
 		}
 	}
 </style>

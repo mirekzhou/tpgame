@@ -1,8 +1,8 @@
 <template>
- 	<transition name="dialog" v-show="showModal" >
-	    <div class="dialog-mask">
+ 	<transition name="dialog">
+	    <div class="dialog-mask" v-show="showme">
 		    <div class="dialog-wrapper">
-		        <div class="dialog-container">
+		        <div class="dialog-container" v-bind:style="styleObject">
 		          	<div class="dialog-header">
 		            	<slot name="header"></slot>
 		         	</div>
@@ -31,63 +31,58 @@
 
 		props: [
 			'zIndex',
-			'showDialog'
+			'showDialog',
+			'styleObject'
 		],
-		
+
 		data: function () {
 			return {
-				showModal: this.showDialog || false
+				showme: this.showDialog
 			}
 		},
 
-		methods: {
+		watch: {
+			showDialog: function (val) {
+				console.log('---');
+				this.showme = val;
+				console.log('!!this.showme = ' + this.showme);
+			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	.dialog {
-		.dialog-mask {
-			position: fixed;
-			z-index: 9998;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, .5);
-			display: table;
-			transition: opacity .3s ease;
+	.dialog-mask {
+		position: fixed;
+		z-index: 9998;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, .5);
+		display: table;
+		transition: opacity .3s ease;
 
-			.dialog-wrapper {
-				display: table-cell;
-				vertical-align: middle;
+		.dialog-wrapper {
+			display: table-cell;
+			vertical-align: middle;
 
-				.dialog-container {
-					width: 300px;
-					margin: 0px auto;
-					padding: 20px 30px;
-					background-color: #fff;
-					border-radius: 2px;
-					box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-					transition: all .3s ease;
-					font-family: Helvetica, Arial, sans-serif;
+			.dialog-container {
+				color: #9992ae;
+				margin: 0px auto;
+				background-color: #fff;
+				border-radius: 2px;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+				transition: all .3s ease;
+				font-family: Helvetica, Arial, sans-serif;
 
-					.dialog-header {
-						h3 {
-							margin-top: 0;
-							color: #42b983;
-						}
-					}
+				.dialog-header {
+				}
 
-					.dialog-body {
-						margin: 20px 0;
-					}
+				.dialog-body {
+				}
 
-					.dialog-footer {
-						.dialog-default-button {
-						  	float: right;
-						}
-					}
+				.dialog-footer {
 				}
 			}
 		}
