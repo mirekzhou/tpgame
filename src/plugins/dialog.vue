@@ -1,18 +1,14 @@
 <template>
- 	<transition name="dialog">
+ 	<transition name="dialog" v-show="showModal" >
 	    <div class="dialog-mask">
 		    <div class="dialog-wrapper">
 		        <div class="dialog-container">
 		          	<div class="dialog-header">
-		            	<slot name="header">
-		              		default header
-		            	</slot>
+		            	<slot name="header"></slot>
 		         	</div>
 
 		          	<div class="dialog-body">
-		            	<slot name="body">
-		              		default body
-		            	</slot>
+		            	<slot name="body"></slot>
 		          	</div>
 
 		          	<div class="dialog-footer">
@@ -33,13 +29,14 @@
 	export default {
 		name: 'dialog',
 
-		props: {
-			'zIndex'
-		},
+		props: [
+			'zIndex',
+			'showDialog'
+		],
 		
 		data: function () {
 			return {
-				showModal: false
+				showModal: this.showDialog || false
 			}
 		},
 

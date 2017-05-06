@@ -13,7 +13,7 @@
 		name: 'my-input',
 
 		props: {
-			myPlaceholder: [String],
+			placeholder: [String],
 			myWidth: [Number, String],
 			myHeight: [Number, String],
 			value: [Number, String]
@@ -21,8 +21,8 @@
 		
 		data: function () {
 			return {
-				width: this.myWidth,
-				height: this.myHeight,
+				width: this.myWidth || 320,
+				height: this.myHeight || 38,
 				placeholder: this.myPlaceholder
 			}
 		},

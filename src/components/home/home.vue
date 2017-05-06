@@ -14,7 +14,7 @@
 									<div class="line1">新手100%首存</div>
 									<div class="line2">世界体育新上线</div>
 									<div class="line3">
-										<div class="button">点击进入</div>
+										<div class="button" v-on:click="showLoginDialog">点击进入</div>
 									</div>
 								</div>
 							</div>
@@ -91,11 +91,14 @@
 
 			<page-naver></page-naver>
 		</div>
+
+		<login :showLogin="showLogin"></login>
 	</div>
 </template>
 
 <script>
-	import pageNaver  from './pageNaver.vue';
+	import login from '../login';
+	import pageNaver from './pageNaver';
 	import { swiper, swiperSlide } from 'vue-awesome-swiper';
 
 	export default {
@@ -109,17 +112,23 @@
 			        prevButton:'.left-arrow',
 			        nextButton:'.right-arrow',
 			        spaceBetween: 100
-		        }
+		        },
+
+		        showLogin: false
 			}
 		},
 
 		components: {
 			'swiper': swiper,
 			'swiper-slide': swiperSlide,
-			'page-naver' : pageNaver
+			'page-naver' : pageNaver,
+			'login': login
 		},
 
 		methods: {
+			showLoginDialog: function () {
+				this.showLogin = !this.showLogin;
+			}
 		}
 	}
 </script>
