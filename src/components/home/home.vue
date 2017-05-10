@@ -109,9 +109,7 @@
 			        prevButton:'.left-arrow',
 			        nextButton:'.right-arrow',
 			        spaceBetween: 100
-		        },
-
-		        x: true
+		        }
 			}
 		},
 
@@ -123,8 +121,7 @@
 
 		methods: {
 			showLoginDialog: function () {
-				this.x = !this.x;
-				this.$store.dispatch('switchLoginDialog', {status: this.x});
+				this.$store.dispatch('switchLoginDialog', {status: true});
 			}
 		}
 	}

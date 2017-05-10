@@ -108,7 +108,6 @@ export default {
 	},
 
 	switchLoginDialog: function ({commit}, opt) {
-		console.log('opt = ' + JSON.stringify(opt));
 		commit('SET_LOGIN_DIALOG_STATUS', {status: opt.status});
 	}
 };

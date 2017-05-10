@@ -1,7 +1,7 @@
 <template>
 	<div class="login">
-		<my-dialog :styleObject="dialogStyleObject">
-			<div slot="header" class="login-header" :showDialog="showDialog">
+		<my-dialog :styleObject="dialogStyleObject" :showDialog="showDialog">
+			<div slot="header" class="login-header">
 				<div class="title">伟易博</div>
 				<div class="register">
 					<span>还没有账号？</span>
@@ -67,16 +67,9 @@
 
 	  	computed: mapState({
 	  		showDialog: function (state) {
-	  			console.log('~~state.showLoginDialog = ' + state.showLoginDialog);
 	  			return state.showLoginDialog;
 	  		}
-	  	}),
-
-	  	watch: {
-	  		showDialog: function () {
-	  			console.log('~~this.showDialog = ' + this.showDialog);
-	  		}
-	  	}
+	  	})
 	}
 </script>
 
@@ -151,6 +144,7 @@
 			.button {
 				background-color: #518743;
 				color: #FFF;
+				cursor: pointer;
 				font-size: 14px;
 				width: 320px;
 				height: 38px;

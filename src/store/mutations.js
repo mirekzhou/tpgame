@@ -18,7 +18,6 @@ export default {
 
 	SET_SPORT_TRY_URL: function (state, opt) {
 		state.sportTryUrl = opt.url;
-		console.log('sportTryUrl = ' + state.sportTryUrl);
 	},
 
 	SET_PHONE_BETTING_URL: function (state, opt) {
@@ -31,6 +30,5 @@ export default {
 
 	SET_LOGIN_DIALOG_STATUS: function (state, opt) {
 		state.showLoginDialog = opt.status;
-		console.log('state.showLoginDialog = ' + state.showLoginDialog);
 	}
 };

@@ -1,6 +1,6 @@
 <template>
  	<transition name="dialog">
-	    <div class="dialog-mask" v-show="showme">
+	    <div class="dialog-mask" v-show="showDialog">
 		    <div class="dialog-wrapper">
 		        <div class="dialog-container" v-bind:style="styleObject">
 		          	<div class="dialog-header">
@@ -33,21 +33,7 @@
 			'zIndex',
 			'showDialog',
 			'styleObject'
-		],
-
-		data: function () {
-			return {
-				showme: this.showDialog
-			}
-		},
-
-		watch: {
-			showDialog: function (val) {
-				console.log('---');
-				this.showme = val;
-				console.log('!!this.showme = ' + this.showme);
-			}
-		}
+		]
 	}
 </script>
 
