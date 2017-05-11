@@ -109,5 +109,9 @@ export default {
 
 	switchLoginDialog: function ({commit}, opt) {
 		commit('SET_LOGIN_DIALOG_STATUS', {status: opt.status});
+	},
+
+	setLoginStatus: function ({commit}, opt) {
+		commit('SET_LOGIN_STATUS', {status: opt.status});
 	}
 };

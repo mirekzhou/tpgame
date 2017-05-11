@@ -1,6 +1,6 @@
 <template>
 	<div class="login" v-on:keyup.enter="goLogin">
-		<my-dialog :styleObject="dialogStyleObject" :showDialog="showDialog">
+		<my-dialog :styleObject="dialogStyleObject" :showDialog="showDialog" :showSpinner="showSpinner">
 			<div slot="header" class="login-header">
 				<div class="title">伟易博</div>
 				<div class="register">
@@ -40,6 +40,8 @@
 	import { mapState } from 'vuex';
 	import dialog from '../plugins/dialog';
 	import input from '../plugins/input';
+	import Config from '../config/config.js';
+	import Service from '../service/service.js';
 
 	export default {
 		name: 'login',
@@ -49,11 +51,12 @@
 				username: '',
 				userpass: '',
 				verifyCode: '',
+				showSpinner: false,
 
 				dialogStyleObject: {
 					width: '380px',
 					height: '450px',
-					background: 'linear-gradient(to top, #3c3560 40%, #4f4779)',
+					background: 'linear-gradient(to top, #3c3560 40%, #4f4779)'
 				},
 
 				inputStyleObject: {
@@ -71,14 +74,34 @@
 
 		methods: {
 			goLogin: function () {
-				var data = {
-					UserName: this.userName,
-					Password: this.userpass,
-					LoginWebSet: window.location.host
+				var callback;
+				var that       =  this;
+				var opt        =  {
+					url: Config.urls.signIn,
+					data: {
+						UserName: this.userName,
+						Password: this.userpass,
+						LoginWebSet: window.location.host
+					}
 				};
 
-				console.log(JSON.stringify(data));
-				//this.$store.dispatch('', {data: data});
+				callback = function (data) {
+					if (data.StatusCode && data.StatusCode != 0) {
+						alert(data.Message);
+						return;
+					}
+
+					return;
+		        	that.$store.dispatch('setLoginStatus', {status: true});
+				};
+
+				this.showSpinner = true;
+
+				setTimeout(function () {
+					that.showSpinner = false;
+				}, 1500);
+
+				//Service.get(opt, callback);
 			},
 
 			closeDialog: function () {
@@ -98,6 +121,7 @@
 	.login {
 		width: 380px;
 		height: auto;
+		position: relative;
 
 		.login-header {
 			position: relative;
@@ -138,6 +162,7 @@
 		.login-body {
 			padding: 0 30px;
 			font-size: 14px;
+			position: relative;
 
 			.input-title {
 				display: inline-block;
@@ -156,6 +181,12 @@
 				&:hover {
 					color: #e9e8ec;
 				}
+			}
+
+			.v-spinner {
+				position: absolute;
+				left: 40%;
+				bottom: 0;
 			}
 		}
 

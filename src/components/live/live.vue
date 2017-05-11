@@ -13,7 +13,11 @@
 				<span class="right-arrow"></span>
 			</div>
 
-			<div class="platforms-zone"></div>
+			<div class="platforms-zone">
+				<ul>
+					<li v-for="item in platforms"></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </template>
@@ -41,6 +45,33 @@
 		        	liveBanner,
 		        	liveBanner,
 		        	liveBanner
+		        ],
+
+		        platforms: [
+		        	{
+		        		name: 'AG欧洲厅',
+		        		description: '老牌真人视讯平台，游戏丰富精彩万分！'
+		        	},
+		        	{
+		        		name: 'BBIN国际厅',
+		        		description: '首创6张牌先发、美女主播互动 、体验至尊感觉！'
+		        	},
+		        	{
+		        		name: 'SUNB亚洲厅',
+		        		description: 'VIP包桌与超级多台游戏，尽享游戏！'
+		        	},
+		        	{
+		        		name: 'AG欧洲厅',
+		        		description: '极速百家乐, 体验畅快游戏！'
+		        	},
+		        	{
+		        		name: 'BBIN国际厅',
+		        		description: '首创6张牌先发、美女主播互动 、体验至尊感觉！'
+		        	},
+		        	{
+		        		name: 'SUNB亚洲厅',
+		        		description: '老牌真人视讯平台，游戏丰富精彩万分！'
+		        	}
 		        ]
 			}
 		},
@@ -102,9 +133,30 @@
 
 		.platforms-zone {
 			background-image: url('../../assets/live-bg.png');
+			background-size: 100%;
 			width: 100%;
 			min-height: 800px;
 			margin-top: -5px;
+
+			ul {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				width: 1170px;
+				text-align: left;
+				margin: 0 auto;
+
+				li {
+					border: 5px solid #4a4595;
+					box-sizing: border-box;
+					display: inline-block;
+					vertical-align: top;
+					width: 310px;
+					height: 440px;
+					margin-right: 80px;
+					margin-top: 40px;
+				}
+			}
 		}
 	}
 </style>

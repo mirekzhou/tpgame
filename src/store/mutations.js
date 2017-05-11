@@ -30,5 +30,9 @@ export default {
 
 	SET_LOGIN_DIALOG_STATUS: function (state, opt) {
 		state.showLoginDialog = opt.status;
+	},
+
+	SET_LOGIN_STATUS: function (state, opt) {
+		state.loginStatus = opt.status;
 	}
 };
