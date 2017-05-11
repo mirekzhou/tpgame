@@ -4,6 +4,7 @@
 			   v-bind:value="value"
 			   v-on:input="updateValue($event.target.value)"
 			   v-bind:placeholder="myPlaceholder" 
+			   v-bind:type="type"
 			   v-bind:style="styleObject" />
 	</div>
 </template>
@@ -13,16 +14,17 @@
 		name: 'my-input',
 
 		props: [
-			'styleObject',
+			'myStyleObject',
 			'myPlaceholder',
+			'myType',
 			'value'
 		],
 		
 		data: function () {
 			return {
-				width: this.myWidth || 320,
-				height: this.myHeight || 38,
-				placeholder: this.myPlaceholder
+				placeholder: this.myPlaceholder,
+				styleObject: this.myStyleObject,
+				type: this.myType
 			}
 		},
 

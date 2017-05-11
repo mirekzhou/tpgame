@@ -1,5 +1,5 @@
 <template>
-	<div class="login">
+	<div class="login" v-on:keyup.enter="goLogin">
 		<my-dialog :styleObject="dialogStyleObject" :showDialog="showDialog">
 			<div slot="header" class="login-header">
 				<div class="title">伟易博</div>
@@ -12,9 +12,19 @@
 
 			<div slot="body" class="login-body">
 				<span class="input-title">用户名</span>
-				<normal-input myPlaceholder="请输入您的用户名" :styleObject="inputStyleObject"></normal-input>
+				<normal-input 
+					myPlaceholder="请输入您的用户名" 
+					:myStyleObject="inputStyleObject" 
+					v-model="username">	
+				</normal-input>
+
 				<span class="input-title">密码</span>
-				<normal-input myPlaceholder="请输入您的密码" :styleObject="inputStyleObject"></normal-input>
+				<normal-input 
+					myType="password"
+					myPlaceholder="请输入您的密码" 
+					:myStyleObject="inputStyleObject"
+					v-model="userpass">
+				</normal-input>
 				<div class="forget-password">忘记密码？</div>
 			</div>
 
@@ -36,6 +46,10 @@
 		
 		data: function () {
 			return {
+				username: '',
+				userpass: '',
+				verifyCode: '',
+
 				dialogStyleObject: {
 					width: '380px',
 					height: '450px',
@@ -57,7 +71,14 @@
 
 		methods: {
 			goLogin: function () {
-				this.$store.dispatch('switchLoginDialog', {status: false});
+				var data = {
+					UserName: this.userName,
+					Password: this.userpass,
+					LoginWebSet: window.location.host
+				};
+
+				console.log(JSON.stringify(data));
+				//this.$store.dispatch('', {data: data});
 			},
 
 			closeDialog: function () {

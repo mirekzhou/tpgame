@@ -95,7 +95,7 @@
 		          	paginationClickable: true,
 			        prevButton:'.left-arrow',
 			        nextButton:'.right-arrow',
-			        spaceBetween: 100,
+			        spaceBetween: 0,
 			        autoHeight: true
 		        },
 
