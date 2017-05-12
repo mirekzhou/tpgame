@@ -34,5 +34,9 @@ export default {
 
 	SET_LOGIN_STATUS: function (state, opt) {
 		state.loginStatus = opt.status;
+	},
+
+	SET_ALERT_STATUS: function (state, opt) {
+		state.showAlert = opt.status;
 	}
 };

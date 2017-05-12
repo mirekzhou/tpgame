@@ -113,5 +113,9 @@ export default {
 
 	setLoginStatus: function ({commit}, opt) {
 		commit('SET_LOGIN_STATUS', {status: opt.status});
+	},
+
+	setAlertStatus: function ({commit}, opt) {
+		commit('SET_ALERT_STATUS', {status: opt.status});
 	}
 };

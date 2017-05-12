@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'   //名字不能大写, 不知道为什么
 import store from './store' 
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 
 /* eslint-disable no-new */
 new Vue({

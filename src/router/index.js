@@ -20,7 +20,7 @@ export default new VueRouter({
 	routes: [
 		{
 			path: '/',
-			name: 'home',
+			name: '/',
 			component: function (resolve) {
 				require(['../components/home/home.vue'], resolve);
 			}
