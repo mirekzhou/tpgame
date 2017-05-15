@@ -98,7 +98,7 @@
 				this.showSpinner = true;
 
 				setTimeout(function () {
-					//that.showSpinner = false;
+					that.showSpinner = false;
 				}, 1500);
 
 				//Service.get(opt, callback);
