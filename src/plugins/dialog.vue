@@ -21,14 +21,7 @@
 		          	</div>
 
 					<div class="spinner-overlay" v-show="showSpinner">
-						<!-- <sync-loader></sync-loader> -->
 						<scale-loader></scale-loader>
-<!-- 						<cube-spin></cube-spin>
-						<rotate-square2></rotate-square2>
-						<rotate-square3></rotate-square3>
-						<rotate-square4></rotate-square4>
-						<rotate-square5></rotate-square5>
-						<rotate-square6></rotate-square6> -->
 					</div>
 		        </div>
 		    </div>
@@ -36,17 +29,19 @@
   	</transition>
 </template>
 
-<script>
-	import SyncLoader from 'vue-spinner/src/SyncLoader.vue';
-	import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
-	import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue';
 
-	import CubeSpin from 'vue-loading-spinner/src/components/Circle';
-	import RotateSquare2 from 'vue-loading-spinner/src/components/RotateSquare2';
-	import RotateSquare3 from 'vue-loading-spinner/src/components/RotateSquare3';
-	import RotateSquare4 from 'vue-loading-spinner/src/components/RotateSquare4';
-	import RotateSquare5 from 'vue-loading-spinner/src/components/RotateSquare5';
-	import RotateSquare6 from 'vue-loading-spinner/src/components/RotateSquare6';
+<script>
+/*  【注意】：如果出现了vue-spinner的动画失效的问题，请注意设置webpack的OptimizeCSSPlugin为安全模式，
+    设置方法如下：
+    new OptimizeCSSPlugin({     //注意：一定要加上cssProcessorOptions的安全选项，
+                                //否则：会出现vue-spinner的动画不能加载的情况，
+                                //它会直接把vue-spinner的keysframes去掉了
+      cssProcessorOptions: {
+        safe: true
+      }
+    })
+*/
+	import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue';
 
 	export default {
 		name: 'dialog',
@@ -59,15 +54,7 @@
 		],
 
 		components: {
-			'sync-loader': SyncLoader,
-			'pulse-loader': PulseLoader,
-			'scale-loader': ScaleLoader,
-			'cube-spin': CubeSpin,
-			'rotate-square2': RotateSquare2,
-			'rotate-square3': RotateSquare3,
-			'rotate-square4': RotateSquare4,
-			'rotate-square5': RotateSquare5,
-			'rotate-square6': RotateSquare6
+			'scale-loader': ScaleLoader
 		}
 	}
 </script>

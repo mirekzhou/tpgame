@@ -5,7 +5,7 @@
 				<span class="left-arrow"></span>
 
 			    <swiper :options="swiperOption">
-			        <swiper-slide v-for="banner in banners">
+			        <swiper-slide v-for="banner in banners" key="banner">
 			        	<img :src="banner" style="width:100% !important">
 			        </swiper-slide>
 			    </swiper>
@@ -21,7 +21,8 @@
 										:name             =  "item.text"
 										:className        =  "item.className"
 										:selected         =  "item.value == platform?true: false"
-										v-on:itemClicked  =  "platformItemClicked">
+										v-on:itemClicked  =  "platformItemClicked"
+										key               =  "item">
 						</platform-item>
 					</div>
 				</div>
@@ -34,7 +35,8 @@
 							v-bind:class      =  "[cateItem.Id == categoryId?'selected': '']" 
 							v-bind:data-id    =  "cateItem.Id" 
 							v-bind:data-code  =  "cateItem.Code"
-							v-on:click        =  "categoryItemClicked($event)">
+							v-on:click        =  "categoryItemClicked($event)"
+							key               =  "cateItem">
 
 							<span>{{cateItem.Name}}</span>
 						</li>
@@ -54,7 +56,8 @@
 										:cnname        =  "item.Title"
 										:showJackpots  =  "item.ShowJackpots"
 										:imageUrl      =  "item.ImageUrl"
-										:collected     =  "false">
+										:collected     =  "false"
+										key            =  "item">
 						</slot-game-item>
 					</div>
 
@@ -335,6 +338,9 @@
 				};
 
 				callback = function (data) {
+					console.log('1....');
+					debugger
+					console.log('2....');
 					if (data.StatusCode && data.StatusCode != 0) {
 						alert(data.Message);
 						return;

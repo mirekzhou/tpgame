@@ -5,7 +5,7 @@
 				<span class="left-arrow"></span>
 
 			    <swiper :options="swiperOption">
-			        <swiper-slide v-for="banner in banners">
+			        <swiper-slide v-for="banner in banners" key="banner">
 			        	<img :src="banner" style="width:100% !important">
 			        </swiper-slide>
 			    </swiper>

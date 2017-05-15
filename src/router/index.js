@@ -15,7 +15,7 @@ import phonebetting from '../components/phonebetting/phonebetting.vue';
 import download     from '../components/download/download.vue';*/
 
 export default new VueRouter({
-	mode: 'history',
+	mode: 'hash',
 	base: __dirname,
 	routes: [
 		{

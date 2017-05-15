@@ -41,7 +41,13 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
-    new OptimizeCSSPlugin(),
+    new OptimizeCSSPlugin({     //注意：一定要加上cssProcessorOptions的安全选项，
+                                //否则：会出现vue-spinner的动画不能加载的情况，
+                                //它会直接把vue-spinner的keysframes去掉了
+      cssProcessorOptions: {
+        safe: true
+      }
+    }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin

@@ -9,7 +9,7 @@
 		</transition>
 		
 		<login></login>
-		<alert></alert>
+		<!-- <alert></alert> -->
 		<!-- <my-footer></my-footer> -->
 	</div>
 </template>
