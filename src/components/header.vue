@@ -52,7 +52,7 @@
 		z-index: 3;
 
 		.top-section {
-			background-color: rgba(30, 25, 50, 1);
+			background-color: #0c1135;
 			font-size: 22px;
 			font-weight: bold;
 			height: $headerTopSectionHeight;
@@ -72,7 +72,7 @@
 		}
 
 		.nav-section {
-			background-color: rgba(25, 21, 44, 1);
+			background-color: #252558;
 			height: $headerNavSectionHeight;
 			line-height: $headerNavSectionHeight;
 
