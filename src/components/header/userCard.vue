@@ -198,6 +198,8 @@
 
 			ul {
 				height: 82px;
+				width: 100%;
+				text-align: center;
 
 				li {
 					line-height: 30px;
