@@ -75,6 +75,7 @@
 	.user-card {
 		background-color: #252558;
 		border: 1px solid #313169;
+		border-top: 0;
 		position: absolute;
 		width: 338px;
 		height: 204px;

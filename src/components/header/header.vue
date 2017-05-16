@@ -15,9 +15,14 @@
 				</ul>
 
 				<ul v-show="!loginStatus">
-					<li>
+					<li class="li-user-center"
+						v-on:mouseover="usernameMouseOver" 
+						v-on:mouseout="usernameMouseOut" 
+						v-bind:class="{active: showUserCard}">
+
 						<span class="cursor">Hi, {{username}}</span>
 						<span class="header-icon-down"></span>
+						<user-card :styleObject="userCardStyle" v-show="showUserCard"></user-card>
 					</li>
 					<li class="li-task-center">
 						<span class="header-icon-cup"></span>
@@ -54,8 +59,6 @@
 						<span class="header-icon-down"></span>
 					</li>
 				</ul>
-
-				<user-card></user-card>
 			</div>
 		</div>
 
@@ -91,7 +94,12 @@
 			return {
 				username: 'Imayday123',
 				balance: '1,000,000,000.00',
-				language: '中文'
+				language: '中文',
+				showUserCard: false,
+				userCardStyle: {
+					'left': '0',
+					'top': '60px'
+				}
 			}
 		},
 
@@ -102,6 +110,14 @@
 
 			goRegister: function () {
 
+			},
+
+			usernameMouseOver: function () {
+				this.showUserCard = true;
+			},
+
+			usernameMouseOut: function () {
+				this.showUserCard = false;
 			}
 		},
 
@@ -215,7 +231,15 @@
 					}
 
 					.li-task-center {
+						padding-right: 10px;
+					}
+
+					.li-user-center {
 						padding: 0 10px;
+					}
+
+					.active {
+						background-color: #252558;
 					}
 				}
 			}
