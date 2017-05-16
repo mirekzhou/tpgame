@@ -33,7 +33,7 @@
 						<span class="header-icon-pig"></span>
 						<span class="balance cursor">{{balance}}</span>
 						<span class="header-icon-down"></span>
-						<span class="header-icon-money-refresh"></span>
+						<span class="header-icon-money-refresh" v-on:click="refreshBalance" v-bind:class="{'rotate': rotateBalance}"></span>
 						<span class="separator"></span>
 					</li>
 					<li>
@@ -99,7 +99,8 @@
 				userCardStyle: {
 					'left': '0',
 					'top': '60px'
-				}
+				},
+				rotateBalance: false
 			}
 		},
 
@@ -118,6 +119,17 @@
 
 			usernameMouseOut: function () {
 				this.showUserCard = false;
+			},
+
+			refreshBalance: function () {
+				var that = this;
+
+				this.rotateBalance = true;
+
+				var st = setTimeout(function () {
+					that.rotateBalance = false;
+					clearTimeout(st);
+				}, 2000);
 			}
 		},
 
@@ -227,6 +239,11 @@
 							height: 32px;
 							margin-right: 28px;
 							outline: 0;
+						}
+
+						.rotate {
+							transition: transform 2s;
+							transform: rotateZ(720deg);
 						}
 					}
 
