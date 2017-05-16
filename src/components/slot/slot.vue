@@ -514,10 +514,7 @@
 
 					.selected {
 						span {
-							background-color: #322b4d;
-							border-radius: 30px;
 							color: #b062d2;
-							padding: 10px 25px;
 						}
 					}
 				}

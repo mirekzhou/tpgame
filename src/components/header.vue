@@ -2,13 +2,67 @@
 	<div class="header">
 		<div class="top-section">
 			<div class="p-wrapper top-section-wrapper">
-				<img class="header-line" src="../assets/header-line.png">
-				<div class="title">伟易博</div>
+				<ul v-show="!loginStatus">
+					<li>
+						<button class="go-login" v-on:click="goLogin">登录</button>
+						<button class="go-register" v-on:click="goRegister">注册</button>
+					</li>
+
+					<li>
+						<span>语言选择：</span>
+						<span class="cursor">{{language}}</span>
+						<span class="header-icon-down"></span>
+					</li>
+				</ul>
+
+				<ul v-show="loginStatus">
+					<li>
+						<span>Hi,</span>
+						<span class="cursor">{{username}}</span>
+						<span class="header-icon-down"></span>
+					</li>
+					<li class="li-task-center">
+						<span class="header-icon-cup"></span>
+						<span class="cursor">活动中心</span>
+						<span class="dot"></span>
+					</li>
+					<li>
+						<span class="header-icon-pig"></span>
+						<span class="balance cursor">{{balance}}</span>
+						<span class="header-icon-down"></span>
+						<span class="header-icon-money-refresh"></span>
+						<span class="separator"></span>
+					</li>
+					<li>
+						<span class="header-icon-star"></span>
+						<span class="cursor">收藏夹</span>
+						<span class="header-icon-down"></span>
+						<span class="separator"></span>
+					</li>
+					<li>
+						<span class="header-icon-folder"></span>
+						<span class="cursor">资金管理</span>
+						<span class="header-icon-down"></span>
+						<span class="separator"></span>
+					</li>
+					<li>
+						<span class="cursor">帮助中心</span>
+					</li>
+					<li>
+						<button class="contact-cs cursor">在线客服</button>
+					</li>
+					<li>
+						<span>语言选择：</span>
+						<span class="cursor">{{language}}</span>
+						<span class="header-icon-down"></span>
+					</li>
+				</ul>
 			</div>
 		</div>
 
 		<div class="nav-section">
 			<div class="p-wrapper nav-section-wrapper">
+				<span class="header-logo"></span>
 				<ul class="pages-section">
 					<li><router-link to="/home">首页</router-link></li>
 					<li><router-link to="/sport">体育竞技</router-link></li>
@@ -19,6 +73,7 @@
 					<li><router-link to="/phonebetting">电话投注</router-link></li>
 					<li><router-link to="/download">下载中心</router-link></li>
 				</ul>
+				<div class="clear"></div>
 			</div>
 		</div>
 	</div>
@@ -26,17 +81,34 @@
 
 <script>
 	import '../scss/common.scss';
+	import { mapState } from 'vuex';
 
 	export default {
 		name: 'header',
 		
 		data: function () {
 			return {
+				username: 'Imayday123',
+				balance: '1,000,000,000.00',
+				language: '中文'
 			}
 		},
 
-		method: {
-		}
+		methods: {
+			goLogin: function () {
+				this.$store.dispatch('switchLoginDialog', {status: true});
+			},
+
+			goRegister: function () {
+
+			}
+		},
+
+	  	computed: mapState({
+	  		loginStatus: function (state) {
+	  			return state.loginStatus;
+	  		}
+	  	})
 	}
 </script>
 
@@ -53,20 +125,92 @@
 
 		.top-section {
 			background-color: #0c1135;
-			font-size: 22px;
-			font-weight: bold;
+			font-size: 14px;
 			height: $headerTopSectionHeight;
 			line-height: $headerTopSectionHeight;
 
 			.top-section-wrapper {
 				text-align: center;
 				position: relative;
+			    width: 1140px;
+			    margin: 0 auto;
 
-				.header-line {
+				ul {
 					width: 100%;
-					position: absolute;
-					top: 1px;
-					left: 0;
+					text-align: right;
+
+					li {
+						display: inline-block;
+						height: $headerTopSectionHeight;
+						line-height: $headerTopSectionHeight;
+						position: relative;
+
+						.separator {
+							display: inline-block;
+							border-right: 1px solid #FFF;
+							height: 15px;
+							line-height: 15px;
+							width: 10px;
+							vertical-align: text-bottom;
+							margin-right: 10px;
+						}
+
+						.contact-cs {
+							background-color: #06a11b;
+							border: 0;
+							border-radius: 5px;
+							cursor: pointer;
+							color: #FFF;
+							height: 30px;
+							width: 100px;
+							text-align: center;
+							margin: 0 10px;
+							outline: 0;
+						}
+
+						.dot {
+							width: 4px;
+							height: 4px;
+							border: 0;
+							border-radius: 50%;
+							background-color: #F00;
+							position: absolute;
+							right: 6px;
+							top: 19px;
+						}
+
+						.cursor {
+							cursor: pointer;
+						}
+
+						.go-login {
+							background-color: #06a11b;
+							border: 0;
+							border-radius: 5px;
+							cursor: pointer;
+							color: #FFF;
+							width: 82px;
+							height: 32px;
+							margin-right: 28px;
+							outline: 0;
+						}
+
+						.go-register {
+							background-color: #06a11b;
+							border: 0;
+							border-radius: 5px;
+							cursor: pointer;
+							color: #FFF;
+							width: 82px;
+							height: 32px;
+							margin-right: 28px;
+							outline: 0;
+						}
+					}
+
+					.li-task-center {
+						padding: 0 10px;
+					}
 				}
 			}
 		}
@@ -108,6 +252,66 @@
 					}
 				}
 			}
+		}
+
+		.header-logo {
+
+		}
+
+		.header-icon-down {
+			background-image: url(../assets/common.png);
+			background-position: -171px -92px;
+			display: inline-block;
+			width: 10px;
+			height: 8px;
+			vertical-align: middle;
+			cursor: pointer;
+		}
+
+		.header-icon-cup {
+			background-image: url(../assets/common.png);
+			background-position: -69px -84px;
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			vertical-align: text-bottom;
+		}
+
+		.header-icon-pig {
+			background-image: url(../assets/common.png);
+			background-position: -95px -84px;
+			display: inline-block;
+			width: 21px;
+			height: 20px;
+			vertical-align: text-bottom;
+		}
+
+		.header-icon-folder {
+			background-image: url(../assets/common.png);
+			background-position: -121px -87px;
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			vertical-align: text-bottom;
+		}
+
+		.header-icon-money-refresh {
+			background-image: url(../assets/common.png);
+			background-position: -144px -86px;
+			display: inline-block;
+			width: 17px;
+			height: 17px;
+			vertical-align: text-bottom;
+			cursor: pointer;
+		}
+
+		.header-icon-star {
+			background-image: url(../assets/common.png);
+			background-position: -47px -84px;
+			display: inline-block;
+			width: 17px;
+			height: 17px;
+			vertical-align: text-bottom;
 		}
 	}
 </style>
