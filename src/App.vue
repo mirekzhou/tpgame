@@ -9,7 +9,6 @@
 		</transition>
 		
 		<login></login>
-		<!-- <alert></alert> -->
 		<!-- <my-footer></my-footer> -->
 	</div>
 </template>
@@ -17,8 +16,8 @@
 <script>
 	import { mapActions } from 'vuex';
 	import login from './components/login';
-	import header from './components/header.vue';
-	import footer from './components/footer.vue';
+	import header from './components/header/header';
+	import footer from './components/footer';
 
 	export default {
 		name: 'app',

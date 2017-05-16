@@ -2,23 +2,21 @@
 	<div class="header">
 		<div class="top-section">
 			<div class="p-wrapper top-section-wrapper">
-				<ul v-show="!loginStatus">
+				<ul v-show="loginStatus">
 					<li>
 						<button class="go-login" v-on:click="goLogin">登录</button>
 						<button class="go-register" v-on:click="goRegister">注册</button>
 					</li>
 
 					<li>
-						<span>语言选择：</span>
-						<span class="cursor">{{language}}</span>
+						<span class="cursor">语言选择：{{language}}</span>
 						<span class="header-icon-down"></span>
 					</li>
 				</ul>
 
-				<ul v-show="loginStatus">
+				<ul v-show="!loginStatus">
 					<li>
-						<span>Hi,</span>
-						<span class="cursor">{{username}}</span>
+						<span class="cursor">Hi, {{username}}</span>
 						<span class="header-icon-down"></span>
 					</li>
 					<li class="li-task-center">
@@ -52,11 +50,12 @@
 						<button class="contact-cs cursor">在线客服</button>
 					</li>
 					<li>
-						<span>语言选择：</span>
-						<span class="cursor">{{language}}</span>
+						<span class="cursor">语言选择：{{language}}</span>
 						<span class="header-icon-down"></span>
 					</li>
 				</ul>
+
+				<user-card></user-card>
 			</div>
 		</div>
 
@@ -80,7 +79,9 @@
 </template>
 
 <script>
-	import '../scss/common.scss';
+	import '../../scss/common.scss';
+	import userCard from './userCard';
+	import collectionCard from './collectionCard';
 	import { mapState } from 'vuex';
 
 	export default {
@@ -102,6 +103,11 @@
 			goRegister: function () {
 
 			}
+		},
+
+		components: {
+			'user-card' :userCard,
+			'collection-card': collectionCard
 		},
 
 	  	computed: mapState({
@@ -259,7 +265,7 @@
 		}
 
 		.header-icon-down {
-			background-image: url(../assets/common.png);
+			background-image: url(../../assets/common.png);
 			background-position: -171px -92px;
 			display: inline-block;
 			width: 10px;
@@ -269,7 +275,7 @@
 		}
 
 		.header-icon-cup {
-			background-image: url(../assets/common.png);
+			background-image: url(../../assets/common.png);
 			background-position: -69px -84px;
 			display: inline-block;
 			width: 20px;
@@ -278,7 +284,7 @@
 		}
 
 		.header-icon-pig {
-			background-image: url(../assets/common.png);
+			background-image: url(../../assets/common.png);
 			background-position: -95px -84px;
 			display: inline-block;
 			width: 21px;
@@ -287,7 +293,7 @@
 		}
 
 		.header-icon-folder {
-			background-image: url(../assets/common.png);
+			background-image: url(../../assets/common.png);
 			background-position: -121px -87px;
 			display: inline-block;
 			width: 16px;
@@ -296,7 +302,7 @@
 		}
 
 		.header-icon-money-refresh {
-			background-image: url(../assets/common.png);
+			background-image: url(../../assets/common.png);
 			background-position: -144px -86px;
 			display: inline-block;
 			width: 17px;
@@ -306,7 +312,7 @@
 		}
 
 		.header-icon-star {
-			background-image: url(../assets/common.png);
+			background-image: url(../../assets/common.png);
 			background-position: -47px -84px;
 			display: inline-block;
 			width: 17px;
