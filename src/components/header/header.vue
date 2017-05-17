@@ -52,7 +52,7 @@
 						<span class="cursor">帮助中心</span>
 					</li>
 					<li>
-						<button class="contact-cs cursor">在线客服</button>
+						<button class="contact-cs cursor" v-on:click="goLogin">在线客服</button>
 					</li>
 					<li>
 						<span class="cursor">语言选择：{{language}}</span>
