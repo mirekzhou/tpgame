@@ -88,7 +88,7 @@
 		    		position: absolute;
 		    		top: 0;
 		    		right: 0;
-		    		transition: width 0.3s ease-in-out 0.1s;
+		    		transition: all 0.3s ease-in-out 0.1s;
 		    		overflow: hidden;
 		    		text-align: left;
 	    		}
