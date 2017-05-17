@@ -92,7 +92,7 @@
 
 		.header-icon-zjgl {
 			background-image: url(../../assets/common.png);
-			background-position: -187px -108px;
+			background-position: -141px -108px;
 			display: inline-block;
 			width: 42px;
 			height: 42px;
@@ -102,7 +102,7 @@
 
 		.header-icon-tzjl {
 			background-image: url(../../assets/common.png);
-			background-position: -187px -154px;
+			background-position: -141px -154px;
 			display: inline-block;
 			width: 42px;
 			height: 42px;
@@ -112,7 +112,7 @@
 
 		.header-icon-czjl {
 			background-image: url(../../assets/common.png);
-			background-position: -187px -201px;
+			background-position: -141px -201px;
 			display: inline-block;
 			width: 42px;
 			height: 42px;
@@ -122,7 +122,7 @@
 
 		.header-icon-xgmm {
 			background-image: url(../../assets/common.png);
-			background-position: -187px -246px;
+			background-position: -141px -246px;
 			display: inline-block;
 			width: 42px;
 			height: 42px;
@@ -210,6 +210,28 @@
 					.title {
 						height: 35px;
 						line-height: 35px;
+					}
+
+					&:hover {
+						.title {
+							color: #ffba13;
+						}
+
+						.header-icon-zjgl {
+							background-position: -187px -108px;
+						}
+
+						.header-icon-tzjl {
+							background-position: -187px -154px;
+						}
+
+						.header-icon-czjl {
+							background-position: -187px -201px;
+						}
+
+						.header-icon-xgmm {
+							background-position: -187px -246px;
+						}
 					}
 				}
 			}
