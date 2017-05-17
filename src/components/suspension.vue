@@ -2,28 +2,28 @@
 	<div class="suspension">
 		<ul>
 			<li>
-				<div class="cuboid">客服QQ 87611136</div>
+				<div class="cuboid qq-cuboid">客服QQ 87611136</div>
 				<div class="icon">
 					<span class="suspension-icon-qq"></span>
 				</div>
 			</li>
 
 			<li>
-				<div class="cuboid">客服电话 +639158888877</div>
+				<div class="cuboid phone-cuboid">客服电话 +639158888877</div>
 				<div class="icon">
 					<span class="suspension-icon-phone"></span>
 				</div>
 			</li>
 
 			<li>
-				<div class="cuboid">24小时在线客服</div>
+				<div class="cuboid cs-cuboid">24小时在线客服</div>
 				<div class="icon">
 					<span class="suspension-icon-cs"></span>
 				</div>
 			</li>
 
 			<li>
-				<div class="cuboid">QQ 12345678</div>
+				<div class="cuboid qr-cuboid">QR Code</div>
 				<div class="icon">
 					<span class="suspension-icon-qrcode"></span>
 				</div>
@@ -105,9 +105,25 @@
 
 	    			.cuboid {
 	    				opacity: 1;
-	    				width: 160px;
 	    				padding-left: 10px;
 	    			}
+
+	    			.qq-cuboid {
+	    				width: 190px;
+	    			}
+
+	    			.phone-cuboid {
+	    				width: 240px;
+	    			}
+
+	    			.cs-cuboid {
+	    				width: 170px;
+	    			}
+
+	    			.qr-cuboid {
+	    				width: 120px;
+	    			}
+
 	    		}
 	    	}
 	    }
