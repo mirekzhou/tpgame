@@ -3,27 +3,30 @@
 		<ul>
 			<li>
 				<div class="cuboid">客服QQ 87611136</div>
-				<div class="icon">HH</div>
+				<div class="icon">
+					<span class="suspension-icon-qq"></span>
+				</div>
 			</li>
 
 			<li>
 				<div class="cuboid">客服电话 +639158888877</div>
-				<div class="icon">HH</div>
+				<div class="icon">
+					<span class="suspension-icon-phone"></span>
+				</div>
 			</li>
 
 			<li>
 				<div class="cuboid">24小时在线客服</div>
-				<div class="icon">HH</div>
+				<div class="icon">
+					<span class="suspension-icon-cs"></span>
+				</div>
 			</li>
 
 			<li>
 				<div class="cuboid">QQ 12345678</div>
-				<div class="icon">HH</div>
-			</li>
-
-			<li>
-				<div class="cuboid">QQ 12345678</div>
-				<div class="icon">HH</div>
+				<div class="icon">
+					<span class="suspension-icon-qrcode"></span>
+				</div>
 			</li>
 		</ul>
 	</div>
@@ -48,7 +51,7 @@
 <style lang="scss" scoped>
 	.suspension {
 	    position: fixed;
-	    top: 30%;
+	    top: 40%;
 	    right: 0;
 	    z-index: 1;
 
@@ -73,13 +76,15 @@
 		    		width: 35px;
 		    		z-index: 100;
 		    		position: relative;
+		    		transition: all 0.3s ease-in-out 0.1s;
 	    		}
 
 	    		.cuboid {
-	    			background-color: red;
+	    			background-color: #a40000;
 		    		border: 0;
 		    		border-radius: 8px;
 	    			color: #FFF;
+	    			cursor: pointer;
 	    			display: inline-block;
 		    		height: 40px;
 		    		line-height: 40px;
@@ -94,6 +99,10 @@
 	    		}
 
 	    		&:hover {
+	    			.icon {
+	    				background-color: #a40000;
+	    			}
+
 	    			.cuboid {
 	    				opacity: 1;
 	    				width: 160px;
@@ -101,6 +110,46 @@
 	    			}
 	    		}
 	    	}
+	    }
+
+	    .suspension-icon-qq {
+			background-image: url(../assets/common.png);
+			background-position: -57px -283px;
+			display: inline-block;
+			width: 22px;
+			height: 22px;
+			vertical-align: middle;
+			cursor: pointer;
+	    }
+
+	    .suspension-icon-phone {
+			background-image: url(../assets/common.png);
+			background-position: -106px -283px;
+			display: inline-block;
+			width: 22px;
+			height: 22px;
+			vertical-align: middle;
+			cursor: pointer;
+	    }
+
+	    .suspension-icon-cs {
+			background-image: url(../assets/common.png);
+			background-position: -6px -285px;
+			display: inline-block;
+			width: 22px;
+			height: 22px;
+			vertical-align: middle;
+			cursor: pointer;
+	    }
+
+	    .suspension-icon-qrcode {
+			background-image: url(../assets/common.png);
+			background-position: -79px -285px;
+			display: inline-block;
+			width: 22px;
+			height: 22px;
+			vertical-align: middle;
+			cursor: pointer;
 	    }
 	}
 </style>
