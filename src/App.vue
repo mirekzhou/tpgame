@@ -9,6 +9,7 @@
 		</transition>
 		
 		<login></login>
+		<suspension></suspension>
 		<!-- <my-footer></my-footer> -->
 	</div>
 </template>
@@ -16,6 +17,7 @@
 <script>
 	import { mapActions } from 'vuex';
 	import login from './components/login';
+	import suspension from './components/suspension';
 	import header from './components/header/header';
 	import footer from './components/footer';
 
@@ -29,7 +31,8 @@
 		components: {
 			'my-header'  : header,
 			'my-footer'  : footer,
-			'login'      : login
+			'login'      : login,
+			'suspension' : suspension
 		}
 	}
 </script>
