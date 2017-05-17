@@ -130,7 +130,7 @@
 
 	    .suspension-icon-qq {
 			background-image: url(../assets/common.png);
-			background-position: -57px -283px;
+			background-position: -55px -283px;
 			display: inline-block;
 			width: 22px;
 			height: 22px;
