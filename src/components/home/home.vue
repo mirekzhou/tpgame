@@ -61,8 +61,6 @@
 
 <style lang="scss" scoped>
 	.home-page {
-		height: 550px;
-
 		.home-page-wrapper {
 			position: relative;
 

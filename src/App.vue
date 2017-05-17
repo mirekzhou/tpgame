@@ -8,9 +8,9 @@
 		    </keep-alive>
 		</transition>
 		
+		<my-footer></my-footer>
 		<login></login>
 		<suspension></suspension>
-		<!-- <my-footer></my-footer> -->
 	</div>
 </template>
 
@@ -46,8 +46,8 @@
 	}
 
 	body {
-		background-image: url(assets/app-bg.png);
-		background-color: #FFF;
+		//background-image: url(assets/app-bg.png);
+		background-color: #090c2d;
 		color: #FFF;
 	}
 

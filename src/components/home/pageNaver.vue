@@ -80,11 +80,9 @@
 	$naver-name-height: 60px;
 
 	.page-naver {
-		position: fixed;
-		left: 0;
-		bottom: 0;
 		width: 100%;
 		height: $naver-item-height;
+		margin-top: 100px;
 
 		.page-naver-wrapper {
 			display: flex;
