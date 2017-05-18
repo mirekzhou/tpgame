@@ -2,7 +2,7 @@
 	<div class="header">
 		<div class="top-section">
 			<div class="p-wrapper top-section-wrapper">
-				<ul v-show="loginStatus">
+				<ul v-show="!loginStatus">
 					<li>
 						<button class="go-login" v-on:click="goLogin">登录</button>
 						<button class="go-register" v-on:click="goRegister">注册</button>
@@ -14,7 +14,7 @@
 					</li>
 				</ul>
 
-				<ul v-show="!loginStatus">
+				<ul v-show="loginStatus">
 					<li class="li-user-center"
 						v-on:mouseover="usernameMouseOver" 
 						v-on:mouseout="usernameMouseOut" 

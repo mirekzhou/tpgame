@@ -79,29 +79,26 @@
 				var opt        =  {
 					url: Config.urls.signIn,
 					data: {
-						UserName: this.userName,
+						UserName: this.username,
 						Password: this.userpass,
 						LoginWebSet: window.location.host
 					}
 				};
 
 				callback = function (data) {
+					that.showSpinner = false;
+
 					if (data.StatusCode && data.StatusCode != 0) {
 						alert(data.Message);
 						return;
 					}
 
-					return;
 		        	that.$store.dispatch('setLoginStatus', {status: true});
+		        	that.closeDialog();
 				};
 
 				this.showSpinner = true;
-
-				setTimeout(function () {
-					that.showSpinner = false;
-				}, 1500);
-
-				//Service.get(opt, callback);
+				Service.post(opt, callback);
 			},
 
 			closeDialog: function () {

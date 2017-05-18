@@ -22,6 +22,8 @@
 					<span class="strengthen"><span>提升</span></span>
 				</li>
 			</ul>
+
+			<div class="logout" v-on:click="logout">退出</div>
 		</div>
 
 		<div class="section2">
@@ -51,6 +53,11 @@
 </template>
 
 <script>
+	import Config from '../../config/config.js';
+	import Service from '../../service/service.js';
+	import { mapActions } from 'vuex';
+	import { mapState } from 'vuex';
+
 	export default {
 		name: 'user-card',
 		
@@ -67,6 +74,24 @@
 		},
 
 		methods: {
+			logout: function () {
+				var opt;
+				var callback;
+				var that = this;
+
+		    	opt   =  {
+					url: Config.urls.signOut,
+					data: {}
+				};
+
+				callback = function (json) {
+		            if(json === true) {
+		            	that.$store.dispatch('setLoginStatus', {status: false});
+		            }
+				};
+
+				Service.get(opt, callback);
+			}
 		}
 	}
 </script>
@@ -135,6 +160,7 @@
 			height: 122px;
 			width: 100%;
 			text-align: left;
+			position: relative;
 
 			.icon-zone {
 				display: inline-block;
@@ -189,6 +215,15 @@
 				.id-zone {
 					font-size: 20px;
 				}
+			}
+
+			.logout {
+				position: absolute;
+				height: 20px;
+				width: 40px;
+				right: 0px;
+				top: -10px;
+				cursor: pointer;
 			}
 		}
 

@@ -26,29 +26,22 @@ export default {
 	},
 
 	post: function(opt, callback) {
-        if (opt.alert === undefined) {
-            opt.alert = true;
-        }
-
-        $.ajax({
-            type: 'POST',
+        axios({
+            method: 'post',
             url: opt.url,
-            dataType: 'json',
-            timeout: Config.timeout,
             data: opt.data,
-            xhrFields: {
-            	withCredentials: true
-            }
-        }).done(function (json) {
+            withCredentials: true,
+            timeout: Config.timeout
+        }).then(function (json) {
             if (json && json.Message && json.Message === '未登录' && !opt.canLogout) {
                 PubSub.publish('onNotLoginIn', {});
                 return;
             }
 
-        	if (typeof callback === 'function') {
-        		callback(json);
-        	}
-        }).fail(function (xhr, testStatus, error) {
+            if (typeof callback === 'function') {
+                callback(json);
+            }
+        }).catch(function (xhr, testStatus, error) {
             console.log('【*****POST请求报错*****】：' + error);
             console.log('【*****参数*****】：' + JSON.stringify(opt));
         });
