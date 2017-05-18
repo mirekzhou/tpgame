@@ -2,12 +2,12 @@
 	<div class="page sport-page">
 		<div class="page-wrapper sport-page-wrapper">
 			<ul>
-				<li>
-					<div class="name">沙巴体育</div>
+				<li class="sport-bbin">
+					<div class="name">BBIN体育</div>
 					<div class="li-overlay"></div>
 				</li>
 
-				<li>
+				<li class="sport-im">
 					<div class="name">IM体育</div>
 					<div class="li-overlay"></div>
 				</li>
@@ -108,6 +108,24 @@
 						left: 0;
 						text-align: center;
 					}
+
+					&:hover {
+						.li-overlay {
+							display: none;
+						}
+
+						.name {
+							color: #FFF;
+						}
+					}
+				}
+
+				.sport-bbin {
+					background-image: url(../../assets/sport-bbin.png);
+				}
+
+				.sport-im {
+					background-image: url(../../assets/sport-im.png);
 				}
 			}
 		}
