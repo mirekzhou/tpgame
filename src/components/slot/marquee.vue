@@ -79,6 +79,8 @@
 	$marqueeWidth            :    $slotWrapperWidth * 230 / $slotWrapperL;
 	$marqueeItemHeight       :    $slotWrapperWidth * 70 / $slotWrapperL;
 
+	$themeBkColor1           :    #222355;
+
 	.marquee {
 		border: 1px solid #5c5674;
 		width: $marqueeWidth;
@@ -87,7 +89,7 @@
 		position: relative;
 
 		ul {
-			background-color: #332d4e;
+			background-color: $themeBkColor1;
 			box-sizing: border-box;
 			list-style: none;
 			width: 100%;

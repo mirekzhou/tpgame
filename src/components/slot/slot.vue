@@ -63,9 +63,9 @@
 
 					<div class="game-zone-right">
 						<search-input placeholder="快速查找游戏"></search-input>
-						<slot-title title="累积奖池"></slot-title>
+						<!-- <slot-title title="累积奖池"></slot-title> -->
 						<div class="pt-jackpot-value">421,131,125.23</div>
-						<slot-title title="超级彩金"></slot-title>
+						<!-- <slot-title title="超级彩金"></slot-title> -->
 						<marquee :list="jackpotGameList"></marquee>
 						<img class="slot-small-ad" :src="slotSmallAd">
 					</div>
@@ -425,6 +425,9 @@
 	$ptJackpotWidth          :    $slotWrapperWidth * 230 / $slotWrapperL;
 	$ptJackpotHeight         :    $slotWrapperWidth * 80 / $slotWrapperL;
 
+	$platformBkColor         :    #222255;
+	$categoryBkColor         :    #232457;
+
 	.slot-page {
 		.swiper-zone {
 		    -webkit-user-select: none;
@@ -470,7 +473,7 @@
 		}
 
 		.platform-zone {
-			background-color: rgba(29, 24, 55, .95);
+			background-color: $platformBkColor;
 			height: $platformZoneHeight;
 			margin-top: 0 - $platformZoneHeight;
 			position: relative;
@@ -489,7 +492,7 @@
 		}
 
 		.category-zone {
-			background-color: rgba(0, 0, 0, .1);
+			background-color: $categoryBkColor;
 			height: $categoryZoneHeight;
 			width: 100%;
 
@@ -510,11 +513,15 @@
 						margin-right: 60px;
 						text-align: left;
 						transition: all .3s;
+
+						span {
+							color: #9696af;
+						}
 					}
 
 					.selected {
 						span {
-							color: #b062d2;
+							color: #FFF;
 						}
 					}
 				}
@@ -552,6 +559,7 @@
 						height: $ptJackpotHeight;
 						line-height: $ptJackpotHeight;
 						text-align: center;
+						margin-top: 14px;
 					}
 
 					.slot-small-ad {

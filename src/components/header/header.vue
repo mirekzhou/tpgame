@@ -70,10 +70,10 @@
 					<li><router-link to="/sport">体育竞技</router-link></li>
 					<li><router-link to="/live">真人视讯</router-link></li>
 					<li><router-link to="/slot">电子游艺</router-link></li>
-					<li><router-link to="/egaming">电子竞技</router-link></li>
+					<!-- <li><router-link to="/egaming">电子竞技</router-link></li> -->
 					<li><router-link to="/lottery">彩票游戏</router-link></li>
-					<li><router-link to="/phonebetting">电话投注</router-link></li>
-					<li><router-link to="/download">下载中心</router-link></li>
+<!-- 					<li><router-link to="/phonebetting">电话投注</router-link></li>
+					<li><router-link to="/download">下载中心</router-link></li> -->
 				</ul>
 				<div class="clear"></div>
 			</div>

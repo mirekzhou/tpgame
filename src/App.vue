@@ -1,7 +1,8 @@
 <template>
 	<div id="app">
 		<my-header></my-header>
-
+		<breaking-news></breaking-news>
+		
 		<transition name="fade">
 		    <keep-alive>
 		      	<router-view></router-view>
@@ -9,8 +10,8 @@
 		</transition>
 		
 		<my-footer></my-footer>
-		<login></login>
 		<suspension></suspension>
+		<login></login>
 	</div>
 </template>
 
@@ -18,6 +19,7 @@
 	import { mapActions } from 'vuex';
 	import login from './components/login';
 	import suspension from './components/suspension';
+	import breakingNews from './components/breakingNews';
 	import header from './components/header/header';
 	import footer from './components/footer';
 
@@ -29,10 +31,11 @@
 		},
 
 		components: {
-			'my-header'  : header,
-			'my-footer'  : footer,
-			'login'      : login,
-			'suspension' : suspension
+			'my-header'    : header,
+			'my-footer'    : footer,
+			'login'        : login,
+			'suspension'   : suspension,
+			'breaking-news' : breakingNews
 		}
 	}
 </script>

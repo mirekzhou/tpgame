@@ -66,7 +66,8 @@
 	$topZoneHeight           :    $gameWidth * 120 / $gameL;
 	$middleZoneHeight        :    $gameWidth * 1 / $gameL;
 	$bottomZoneHeight        :    $gameWidth * 25 / $gameL;
-
+	$themeBkColor1           :    #222355;
+	
 	.slot-game-item {
 		border: 1px solid #5c5674;
 		box-sizing: border-box;
@@ -108,7 +109,7 @@
 		}
 
 		.bottom-zone {
-			background-color: #322b4d;
+			background-color: $themeBkColor1;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;

@@ -57,7 +57,7 @@
 
 	    ul {
 	    	list-style: none;
-	    	padding-right: 8px;
+	    	padding-right: 2px;
 
 	    	li {
 	    		height: 40px;

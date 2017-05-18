@@ -21,9 +21,10 @@
 	$slotWrapperWidth        :    1140px;
 	$inputSearchHeight       :    $slotWrapperWidth * 40 / $slotWrapperL;
 	$inputSearchWidth        :    $slotWrapperWidth * 230 / $slotWrapperL;
+	$searchInputBkColor      :    #27285b;
 
 	.input-search {
-		background-color: #322b4d;
+		background-color: $searchInputBkColor;
 		border: 1px solid #5c5674;
 		display: inline-block;
 		box-sizing: border-box;
