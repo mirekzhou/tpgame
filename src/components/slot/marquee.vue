@@ -83,10 +83,12 @@
 
 	.marquee {
 		border: 1px solid #5c5674;
+		border-top: 0;
 		width: $marqueeWidth;
 		height: $marqueeItemHeight * 6;
 		overflow: hidden;
 		position: relative;
+		margin-top: -1px;
 
 		ul {
 			background-color: $themeBkColor1;

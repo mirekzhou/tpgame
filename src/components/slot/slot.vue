@@ -11,6 +11,12 @@
 			    </swiper>
 
 				<span class="right-arrow"></span>
+
+
+				<div class="sum-jackpot">
+					<div class="sum-jackpot-frame"></div>
+					<div class="sum-jackpot-value">{{sumJackpotValue}}</div>
+				</div>
 			</div>
 
 			<div class="platform-zone">
@@ -64,7 +70,7 @@
 					<div class="game-zone-right">
 						<search-input placeholder="快速查找游戏"></search-input>
 						<!-- <slot-title title="累积奖池"></slot-title> -->
-						<div class="pt-jackpot-value">421,131,125.23</div>
+						<div class="pt-jackpot-title">超级彩金</div>
 						<!-- <slot-title title="超级彩金"></slot-title> -->
 						<marquee :list="jackpotGameList"></marquee>
 						<img class="slot-small-ad" :src="slotSmallAd">
@@ -108,6 +114,8 @@
 		        	slotBanner,
 		        	slotBanner
 		        ],
+
+		        sumJackpotValue: '421,131,125.23',
 
 		        platformList :  [   //平台列表
 		        	{
@@ -467,6 +475,34 @@
 					background-image: url(../../assets/page-right-arrow-active.png);
 				}
 			}
+
+			.sum-jackpot {
+				position: absolute;
+				top: 24%;
+				width: 320px;
+				height: 200px;
+				right: 10%;
+				z-index: 4;
+
+				.sum-jackpot-frame {
+					background-image: url(../../assets/jackpot.png);
+					width: 100%;
+					height: 100%;
+				}
+
+				.sum-jackpot-value {
+				    font-size: 24px;
+				    font-weight: bold;
+					display: inline-block;
+					position: absolute;
+					bottom: 35px;
+					left: 35px;
+					width: 250px;
+					height: 56px;
+					line-height: 56px;
+					text-align: center;
+				}
+			}
 		}
 
 		.platform-zone {
@@ -547,7 +583,7 @@
 					vertical-align: top;
 					margin-top: 10px;
 
-					.pt-jackpot-value {
+					.pt-jackpot-title {
 						background-image: url(../../assets/common.png);
 						color: #FFF;
 						font-size: 24px;
