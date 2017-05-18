@@ -56,7 +56,7 @@
 				dialogStyleObject: {
 					width: '380px',
 					height: '450px',
-					background: 'linear-gradient(to top, #3c3560 40%, #4f4779)'
+					background: 'linear-gradient(to top, #242655 40%, #333676)'
 				},
 
 				inputStyleObject: {
