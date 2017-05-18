@@ -338,9 +338,6 @@
 				};
 
 				callback = function (data) {
-					console.log('1....');
-					debugger
-					console.log('2....');
 					if (data.StatusCode && data.StatusCode != 0) {
 						alert(data.Message);
 						return;

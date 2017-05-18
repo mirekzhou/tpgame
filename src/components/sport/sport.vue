@@ -1,6 +1,6 @@
 <template>
 	<div class="page sport-page">
-		<iframe ref="iframe" v-bind:src="t188Url"></iframe>
+
 	</div>
 </template>
 
@@ -51,8 +51,8 @@
 
 <style lang="scss" scoped>
 	.sport-page {
-		height: auto;
-		padding-bottom: 100px;
+		background: url(../../assets/sport-bg.png) center top no-repeat;
+		padding: 735px 0 30px;
 
 		iframe {
 			height: 1200px;

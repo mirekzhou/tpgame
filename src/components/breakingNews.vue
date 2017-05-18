@@ -55,14 +55,14 @@
 	.breaking-news {
 		$news-height: 50px;
 
-		background-color: #39216e;
+		background-color: rgba(12, 17, 53, .5);
 		box-sizing: border-box;
 		position: fixed;
 		left: 0;
 		top: 120px;
 		width: 100%;
 		height: $news-height;
-		z-index: 10;
+		z-index: 2;
 
 		.breaking-news-wrapper {
 			display: flex;

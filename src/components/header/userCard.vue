@@ -79,6 +79,7 @@
 		position: absolute;
 		width: 338px;
 		height: 204px;
+		z-index: 6;
 
 		.header-icon-crown {
 			background-image: url(../../assets/common.png);
