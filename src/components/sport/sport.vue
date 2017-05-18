@@ -1,6 +1,18 @@
 <template>
 	<div class="page sport-page">
+		<div class="page-wrapper sport-page-wrapper">
+			<ul>
+				<li>
+					<div class="name">沙巴体育</div>
+					<div class="li-overlay"></div>
+				</li>
 
+				<li>
+					<div class="name">IM体育</div>
+					<div class="li-overlay"></div>
+				</li>
+			</ul>
+		</div>
 	</div>
 </template>
 
@@ -53,10 +65,51 @@
 	.sport-page {
 		background: url(../../assets/sport-bg.png) center top no-repeat;
 		padding: 735px 0 30px;
+		position: relative;
 
-		iframe {
-			height: 1200px;
-			width: 1024px;
+		.sport-page-wrapper {
+			width: 1140px;
+			height: 100%;
+			margin: 0 auto;
+			position: absolute;
+			top: 105px;
+			right: 10%;
+			text-align: right;
+
+			ul {
+				list-style: none;
+				display: inline-block;
+
+				li {
+					width: 310px;
+					height: 277px;
+					margin-bottom: 76px;
+					position: relative;
+
+					.li-overlay {
+						background-color: rgba(10, 9, 39, 0.4);
+						position: absolute;
+						left: 0;
+						right: 0;
+						width: 100%;
+						height: 100%;
+					}
+
+					.name {
+						cursor: pointer;
+						font-size: 28px;
+						width: 100%;
+						height: 75px;
+						line-height: 75px;
+						color: #9fa1ad;
+						background-color: rgba(6, 5, 27, .78);
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						text-align: center;
+					}
+				}
+			}
 		}
 	}
 </style>
