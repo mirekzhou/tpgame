@@ -107,6 +107,25 @@ export default {
 		});
 	},
 
+	getRegisterConfig: function ({commit}) {
+		var callback;
+		var opt  =  {
+			url: Config.urls.getRegistSetting,
+	        data: {}
+		};
+
+		callback = function (json) {
+			if (json.StatusCode && json.StatusCode != 0) {
+				alert(json.Message);
+				return;
+			}
+
+			commit('SET_REGISTER_CONFIG', {data: json});
+		};
+
+		Service.get(opt, callback);
+	},
+
 	switchLoginDialog: function ({commit}, opt) {
 		commit('SET_LOGIN_DIALOG_STATUS', {status: opt.status});
 	},

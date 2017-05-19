@@ -42,5 +42,9 @@ export default {
 
 	SET_ALERT_STATUS: function (state, opt) {
 		state.showAlert = opt.status;
+	},
+
+	SET_REGISTER_CONFIG: function (state, opt) {
+		state.registerConfig = opt.data;
 	}
 };

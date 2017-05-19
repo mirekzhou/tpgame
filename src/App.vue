@@ -41,13 +41,14 @@
 				    position: 'top right',
 				    showDuration: 2000,
 				    type: 'info',
-				    timeOut: 60000
+				    timeOut: 5000
 				}
 			}
 		},
 
 		mounted: function () {
 			this.$store.dispatch('getLoginStatus');
+			this.$store.dispatch('getRegisterConfig');
 		},
 
 		methods: {
