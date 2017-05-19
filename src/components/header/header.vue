@@ -66,12 +66,12 @@
 			<div class="p-wrapper nav-section-wrapper">
 				<span class="header-logo"></span>
 				<ul class="pages-section">
-					<li><router-link to="/home">首页</router-link></li>
-					<li><router-link to="/sport">体育竞技</router-link></li>
-					<li><router-link to="/live">真人视讯</router-link></li>
-					<li><router-link to="/slot">电子游艺</router-link></li>
+					<li><router-link to="/home"><span>首页</span></router-link></li>
+					<li><router-link to="/sport"><span>体育竞技</span></router-link></li>
+					<li><router-link to="/live"><span>真人视讯</span></router-link></li>
+					<li><router-link to="/slot"><span>电子游艺</span></router-link></li>
 					<!-- <li><router-link to="/egaming">电子竞技</router-link></li> -->
-					<li><router-link to="/lottery">彩票游戏</router-link></li>
+					<li><router-link to="/lottery"><span>彩票游戏</span></router-link></li>
 <!-- 					<li><router-link to="/phonebetting">电话投注</router-link></li>
 					<li><router-link to="/download">下载中心</router-link></li> -->
 				</ul>
@@ -149,6 +149,17 @@
 <style lang="scss" scoped>
 	$headerTopSectionHeight   :   60px;
 	$headerNavSectionHeight   :   60px;
+
+	.router-link-active{
+        span {
+        	border-bottom: 2px solid #d263ee;
+        	color: #d263ee ;
+        	display: inline-block;
+        	height: 36px;
+        	line-height: 36px;
+        	vertical-align: middle;
+        }
+    }
 
 	.header {
 		width: 100%;

@@ -478,9 +478,10 @@
 
 			.sum-jackpot {
 				position: absolute;
-				top: 24%;
+				top: 50%;
 				width: 320px;
 				height: 200px;
+				margin-top: -120px;
 				right: 10%;
 				z-index: 4;
 

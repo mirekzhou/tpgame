@@ -12,6 +12,7 @@
 		<my-footer></my-footer>
 		<suspension></suspension>
 		<login></login>
+		<notifier :show="showToast" :toastr="toastr"></notifier>
 	</div>
 </template>
 
@@ -20,22 +21,43 @@
 	import login from './components/login';
 	import suspension from './components/suspension';
 	import breakingNews from './components/breakingNews';
+	import notifier from 'cxlt-vue2-toastr/src/toastr/toastr';
+	import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css';
 	import header from './components/header/header';
 	import footer from './components/footer';
 
 	export default {
 		name: 'app',
 		
+		data: function () {
+			return {
+				showToast: true,
+				toastr: {
+					title: '紧急通知',
+					message: '人民银行于北京时间2017-05-20 00:00 ~ 08:00进行系统升级，维护期间不支持办理出入款事务，造成不便请您谅解！',
+					closeButton: true,
+				    position: 'top right',
+				    showDuration: 2000,
+				    type: 'info',
+				    timeOut: 60000
+				}
+			}
+		},
+
 		mounted: function () {
 			this.$store.dispatch('getLoginStatus');
 		},
 
+		methods: {
+		},
+
 		components: {
-			'my-header'    : header,
-			'my-footer'    : footer,
-			'login'        : login,
-			'suspension'   : suspension,
-			'breaking-news' : breakingNews
+			'my-header'     :  header,
+			'my-footer'     :  footer,
+			'login'         :  login,
+			'suspension'    :  suspension,
+			'breaking-news' :  breakingNews,
+			'notifier'      :  notifier
 		}
 	}
 </script>
