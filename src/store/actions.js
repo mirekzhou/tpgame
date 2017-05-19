@@ -1,8 +1,8 @@
 /*
-**  【1】 Action提交的是mutation, 而不是直接变更状态
-**  【2】 Action可以包含任意异步操作
-**  【3】 Action的参数是context
-**  【4】 在组件中使用 this.$store.dispatch('xxx') 分发 action
+**  隆戮1隆驴 Action脤谩陆禄碌脛脢脟mutation, 露酶虏禄脢脟脰卤陆脫卤盲赂眉脳麓脤卢
+**  隆戮2隆驴 Action驴脡脪脭掳眉潞卢脠脦脪芒脪矛虏陆虏脵脳梅
+**  隆戮3隆驴 Action碌脛虏脦脢媒脢脟context
+**  隆戮4隆驴 脭脷脳茅录镁脰脨脢鹿脫脙 this.$store.dispatch('xxx') 路脰路垄 action
 */
 
 import Config from '../config/config.js';
@@ -19,22 +19,22 @@ export default {
 			status = (data == 0)?true : false;
 			commit('SET_LOGIN_STATUS', {status: status});
 
-			if (status) {    //如果已登录
-				dispatch('getUserInfo');           //获取登录用户信息
+			if (status) {    //脠莽鹿没脪脩碌脟脗录
+				dispatch('getUserInfo');           //禄帽脠隆碌脟脗录脫脙禄搂脨脜脧垄
 
-				if (!state.sportUrl) {             //获取体育url
+				if (!state.sportUrl) {             //禄帽脠隆脤氓脫媒url
 					dispatch('getSportUrl');
 				}
 
-				if (!state.phoneBettingUrl) {      //获取电投url
+				if (!state.phoneBettingUrl) {      //禄帽脠隆碌莽脥露url
 					dispatch('getPhoneBettingUrl');
 				}
-			} else {         //如果未登录
-				if (!state.sportTryUrl) {          //获取未登录体育url
+			} else {         //脠莽鹿没脦麓碌脟脗录
+				if (!state.sportTryUrl) {          //禄帽脠隆脦麓碌脟脗录脤氓脫媒url
 					dispatch('getSportTryUrl');
 				}
 
-				if (!state.phoneBettingTryUrl) {   //获取未登录电url
+				if (!state.phoneBettingTryUrl) {   //禄帽脠隆脦麓碌脟脗录碌莽url
 					dispatch('getPhoneBettingTryUrl');
 				}
 			}
@@ -109,6 +109,10 @@ export default {
 
 	switchLoginDialog: function ({commit}, opt) {
 		commit('SET_LOGIN_DIALOG_STATUS', {status: opt.status});
+	},
+
+	switchRegisterDialog: function ({commit}, opt) {
+		commit('SET_REGISTER_DIALOG_STATUS', {status: opt.status});
 	},
 
 	setLoginStatus: function ({commit}, opt) {

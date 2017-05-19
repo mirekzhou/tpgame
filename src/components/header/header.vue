@@ -110,7 +110,7 @@
 			},
 
 			goRegister: function () {
-
+				this.$store.dispatch('switchRegisterDialog', {status: true});
 			},
 
 			usernameMouseOver: function () {

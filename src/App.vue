@@ -12,6 +12,7 @@
 		<my-footer></my-footer>
 		<suspension></suspension>
 		<login></login>
+		<register></register>
 		<notifier :show="showToast" :toastr="toastr"></notifier>
 	</div>
 </template>
@@ -19,6 +20,7 @@
 <script>
 	import { mapActions } from 'vuex';
 	import login from './components/login';
+	import register from './components/register';
 	import suspension from './components/suspension';
 	import breakingNews from './components/breakingNews';
 	import notifier from 'cxlt-vue2-toastr/src/toastr/toastr';
@@ -55,6 +57,7 @@
 			'my-header'     :  header,
 			'my-footer'     :  footer,
 			'login'         :  login,
+			'register'      :  register,
 			'suspension'    :  suspension,
 			'breaking-news' :  breakingNews,
 			'notifier'      :  notifier

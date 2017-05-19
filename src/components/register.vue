@@ -1,16 +1,16 @@
 <template>
-	<div class="login" v-on:keyup.enter="goLogin">
+	<div class="register" v-on:keyup.enter="goRegister">
 		<my-dialog :styleObject="dialogStyleObject" :showDialog="showDialog" :showSpinner="showSpinner">
-			<div slot="header" class="login-header">
+			<div slot="header" class="register-header">
 				<div class="title">伟易博</div>
 				<div class="register">
-					<span>还没有账号？</span>
-					<span class="register-now" v-on:click="goRegister">立即注册</span>
+					<span>已有账号？</span>
+					<span class="register-now" v-on:click="goLogin">立即登录</span>
 				</div>
 				<span class="close" v-on:click="closeDialog">×</span>
 			</div>
 
-			<div slot="body" class="login-body">
+			<div slot="body" class="register-body">
 				<span class="input-title">用户名</span>
 				<normal-input 
 					myPlaceholder="请输入您的用户名" 
@@ -28,8 +28,8 @@
 				<div class="forget-password">忘记密码？</div>
 			</div>
 
-			<div slot="footer" class="login-footer">
-				<div class="button" v-on:click="goLogin">立即登录</div>
+			<div slot="footer" class="register-footer">
+				<div class="button" v-on:click="goRegister">立即注册</div>
 			</div>
 		</my-dialog>
 	</div>
@@ -44,7 +44,7 @@
 	import Service from '../service/service.js';
 
 	export default {
-		name: 'login',
+		name: 'register',
 		
 		data: function () {
 			return {
@@ -73,7 +73,7 @@
 		},
 
 		methods: {
-			goLogin: function () {
+			goRegister: function () {
 				var callback;
 				var that       =  this;
 				var opt        =  {
@@ -101,31 +101,31 @@
 				Service.post(opt, callback);
 			},
 
-			goRegister: function () {
+			goLogin: function () {
 				this.closeDialog();
-				this.$store.dispatch('switchRegisterDialog', {status: true});
+				this.$store.dispatch('switchLoginDialog', {status: true});
 			},
 
 			closeDialog: function () {
-				this.$store.dispatch('switchLoginDialog', {status: false});
+				this.$store.dispatch('switchRegisterDialog', {status: false});
 			}
 		},
 
 	  	computed: mapState({
 	  		showDialog: function (state) {
-	  			return state.showLoginDialog;
+	  			return state.showRegisterDialog;
 	  		}
 	  	})
 	}
 </script>
 
 <style lang="scss" scoped>
-	.login {
+	.register {
 		width: 380px;
 		height: auto;
 		position: relative;
 
-		.login-header {
+		.register-header {
 			position: relative;
 			height: 180px;
 
@@ -161,7 +161,7 @@
 			}
 		}
 
-		.login-body {
+		.register-body {
 			padding: 0 30px;
 			font-size: 14px;
 			position: relative;
@@ -192,7 +192,7 @@
 			}
 		}
 
-		.login-footer {
+		.register-footer {
 			padding: 0 30px;
 
 			.button {

@@ -32,14 +32,14 @@ export default {
             data: opt.data,
             withCredentials: true,
             timeout: Config.timeout
-        }).then(function (json) {
-            if (json && json.Message && json.Message === '未登录' && !opt.canLogout) {
+        }).then(function (response) {
+            if (response && response.Message && response.Message === '未登录' && !opt.canLogout) {
                 PubSub.publish('onNotLoginIn', {});
                 return;
             }
 
             if (typeof callback === 'function') {
-                callback(json);
+                callback(response.data);
             }
         }).catch(function (xhr, testStatus, error) {
             console.log('【*****POST请求报错*****】：' + error);

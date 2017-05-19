@@ -32,6 +32,10 @@ export default {
 		state.showLoginDialog = opt.status;
 	},
 
+	SET_REGISTER_DIALOG_STATUS: function (state, opt) {
+		state.showRegisterDialog = opt.status;
+	},
+
 	SET_LOGIN_STATUS: function (state, opt) {
 		state.loginStatus = opt.status;
 	},

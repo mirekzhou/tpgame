@@ -38,6 +38,7 @@ const state = {
 	gameCollections        :   [],      //游戏收藏列表
 
 	showLoginDialog        :   false,
+	showRegisterDialog     :   false,
 	showAlert              :   false
 
 };
