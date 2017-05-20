@@ -4,11 +4,12 @@
 			<div v-for="item in items" 
 				 class="naver-item" 
 				 v-bind:class="item.className" 
-				 v-on:mouseover="playAudio($event)"
-				 v-on:mouseout="stopAudio($event)">
+				 v-on:mouseover="playAudio($event, item.imgActiveSrc)"
+				 v-on:mouseout="stopAudio($event, item.imgSrc)">
 
-				<div class="img"></div>
+				<img :src="item.imgSrc">
 				<div class="name">{{item.textName}}</div>
+				<div class="naver-item-overlay"></div>
 				<audio v-bind:src="item.audioSrc">您的浏览器不支持 audio 标签。</audio>
 			</div>
 		</div>
@@ -18,6 +19,16 @@
 <script>
 	import mp31 from '../../assets/live.mp3';
 	import mp32 from '../../assets/sport.mp3';
+	import naverSportImg from '../../assets/naver-sport-img.png';
+	import naverSportImgActive from '../../assets/naver-sport-img-active.png';
+	import naverSlotImg from '../../assets/naver-slot-img.png';
+	import naverSlotImgActive from '../../assets/naver-slot-img-active.png';
+	import naverLiveImg from '../../assets/naver-live-img.png';
+	import naverLiveImgActive from '../../assets/naver-live-img-active.png';
+	import naverEgamingImg from '../../assets/naver-egaming-img.png';
+	import naverEgamingImgActive from '../../assets/naver-egaming-img-active.png';
+	import naverLotteryImg from '../../assets/naver-lottery-img.png';
+	import naverLotteryImgActive from '../../assets/naver-lottery-img-active.png';
 
 	export default {
 		name: 'page-naver',
@@ -26,29 +37,39 @@
 			return {
 				items: [
 					{
-						className: 'naver-sport',
-						audioSrc : mp31,
-						textName : '体育竞技'
+						className    : 'naver-sport',
+						audioSrc     : mp31,
+						textName     : '体育竞技',
+						imgSrc       : naverSportImg,
+						imgActiveSrc : naverSportImgActive,
 					},
 					{
 						className: 'naver-live',
 						audioSrc : mp32,
-						textName : '真人娱乐'
+						textName : '真人娱乐',
+						imgSrc       : naverLiveImg,
+						imgActiveSrc : naverLiveImgActive,
 					},
 					{
 						className: 'naver-slot',
 						audioSrc : mp31,
-						textName : '电子游艺'
+						textName : '电子游艺',
+						imgSrc       : naverSlotImg,
+						imgActiveSrc : naverSlotImgActive,
 					},
 					{
 						className: 'naver-lottery',
 						audioSrc : mp32,
-						textName : '彩票游戏'
+						textName : '彩票游戏',
+						imgSrc       : naverLotteryImg,
+						imgActiveSrc : naverLotteryImgActive
 					},
 					{
 						className: 'naver-egaming',
 						audioSrc : mp31,
-						textName : '电子竞技'
+						textName : '电子竞技',
+						imgSrc       : naverEgamingImg,
+						imgActiveSrc : naverEgamingImgActive
 					}
 				]
 			}
@@ -58,7 +79,7 @@
 		},
 
 		methods: {
-			playAudio: function (event) {
+			playAudio: function (event, imgActiveSrc) {
 				//【1】 关于v-ref在v-for里面使用的问题:
 				// As I mentioned in the previous issue, v-ref inside v-for is a rabbit hole, 
 				// supporting it leads to more problems than convenience 
@@ -66,10 +87,12 @@
 
 				//【2】 注意元素绑定方法是传参的方法： $event
 				event.currentTarget.querySelector('audio').play();
+				event.currentTarget.querySelector('img').src = imgActiveSrc;
 			},
 
-			stopAudio: function (event) {
+			stopAudio: function (event, imgSrc) {
 				event.currentTarget.querySelector('audio').pause();
+				event.currentTarget.querySelector('img').src = imgSrc;
 			}
 		}
 	}
@@ -97,12 +120,12 @@
 				text-align: center;
 				position: relative;
 
-				.img {
-				    height: 100%;
-				    background-size: 100%;
-				    margin-top: -30%;
-				    background-repeat: no-repeat;
-				    transition: all .1s;
+				img {
+					display: inline-block;
+				    position: absolute;
+				    bottom: 24%;
+				    left: 0;
+				    width: 100%;
 				}
 
 				.name {
@@ -119,6 +142,15 @@
 					transition: all .1s;
 				}
 
+				.naver-item-overlay {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					background-color: rgba(10, 9, 39, 0.4);
+				}
+
 				audio {
 					display: none;
 				}
@@ -126,6 +158,10 @@
 				&:hover {
 					.name {
 						color: #FFF;
+					}
+
+					.naver-item-overlay {
+						display: none;
 					}
 
 					audio {
@@ -136,82 +172,22 @@
 
 			.naver-sport {
 				background-image: url(../../assets/naver-sport.png);
-
-				.img {
-					background-image: url(../../assets/naver-sport-img.png);
-				}
-
-				&:hover {
-					background-image: url(../../assets/naver-sport-active.png);
-
-					.img {
-						background-image: url(../../assets/naver-sport-img-active.png);
-					}
-				}
 			}
 
 			.naver-live {
 				background-image: url(../../assets/naver-live.png);
-
-				.img {
-					background-image: url(../../assets/naver-live-img.png);
-				}
-
-				&:hover {
-					background-image: url(../../assets/naver-live-active.png);
-
-					.img {
-						background-image: url(../../assets/naver-live-img-active.png);
-					}
-				}
 			}
 
 			.naver-slot {
 				background-image: url(../../assets/naver-slot.png);
-
-				.img {
-					background-image: url(../../assets/naver-slot-img.png);
-				}
-
-				&:hover {
-					background-image: url(../../assets/naver-slot-active.png);
-
-					.img {
-						background-image: url(../../assets/naver-slot-img-active.png);
-					}
-				}
 			}
 
 			.naver-lottery {
 				background-image: url(../../assets/naver-lottery.png);
-
-				.img {
-					background-image: url(../../assets/naver-lottery-img.png);
-				}
-
-				&:hover {
-					background-image: url(../../assets/naver-lottery-active.png);
-
-					.img {
-						background-image: url(../../assets/naver-lottery-img-active.png);
-					}
-				}
 			}
 
 			.naver-egaming {
 				background-image: url(../../assets/naver-egaming.png);
-
-				.img {
-					background-image: url(../../assets/naver-egaming-img.png);
-				}
-
-				&:hover {
-					background-image: url(../../assets/naver-egaming-active.png);
-
-					.img {
-						background-image: url(../../assets/naver-egaming-img-active.png);
-					}
-				}
 			}
 		}
 	}
