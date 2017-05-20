@@ -94,6 +94,7 @@
 					}
 
 		        	that.$store.dispatch('setLoginStatus', {status: true});
+		        	that.$store.dispatch('getLoginUserInfo');
 		        	that.closeDialog();
 				};
 
@@ -106,7 +107,14 @@
 				this.$store.dispatch('switchRegisterDialog', {status: true});
 			},
 
+			resetDialog: function () {
+				this.username   = '';
+				this.userpass   = '';
+				this.verifyCode = '';
+			},
+
 			closeDialog: function () {
+				this.resetDialog();
 				this.$store.dispatch('switchLoginDialog', {status: false});
 			}
 		},

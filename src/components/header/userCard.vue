@@ -7,7 +7,7 @@
 
 			<ul class="user-info">
 				<li class="id-zone">
-					ID {{userid}}
+					ID {{loginUserInfo.Id}}
 				</li>
 
 				<li>
@@ -18,7 +18,7 @@
 
 				<li>
 					<span class="title">玩家等级</span>
-					<span class="value">{{userLevel}}</span>
+					<span class="value">{{loginUserInfo.UserLevelName}}</span>
 					<span class="strengthen"><span>提升</span></span>
 				</li>
 			</ul>
@@ -67,9 +67,7 @@
 
 		data: function () {
 			return {
-				userid: '2419',
-				safeScores: '20',
-				userLevel: '白金VIP'
+				safeScores: '20'
 			}
 		},
 
@@ -92,7 +90,13 @@
 
 				Service.get(opt, callback);
 			}
-		}
+		},
+
+	  	computed: mapState({
+	  		loginUserInfo: function (state) {
+	  			return state.loginUserInfo;
+	  		}
+	  	})
 	}
 </script>
 

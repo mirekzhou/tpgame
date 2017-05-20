@@ -20,7 +20,7 @@ export default {
 			commit('SET_LOGIN_STATUS', {status: status});
 
 			if (status) {    //Èç¹ûÒÑµÇÂ¼
-				dispatch('getUserInfo');           //»ñÈ¡µÇÂ¼ÓÃ»§ÐÅÏ¢
+				dispatch('getLoginUserInfo');           //»ñÈ¡µÇÂ¼ÓÃ»§ÐÅÏ¢
 
 				if (!state.sportUrl) {             //»ñÈ¡ÌåÓýurl
 					dispatch('getSportUrl');
@@ -41,13 +41,14 @@ export default {
 		});
 	},
 
-	getUserInfo: function (context) {
+	getLoginUserInfo: function ({commit}) {
 		var opt = {
 			url: Config.urls.getLoginInUserInfo
 		};
 
 		Service.get(opt, function (data) {
-			context.commit('SET_LOGIN_USER_INFO', {data: data});
+			console.log(JSON.stringify(data));
+			commit('SET_LOGIN_USER_INFO', {data: data});
 		});
 	},
 

@@ -483,7 +483,7 @@
 				height: 200px;
 				margin-top: -120px;
 				right: 10%;
-				z-index: 4;
+				z-index: 1;
 
 				.sum-jackpot-frame {
 					background-image: url(../../assets/jackpot.png);

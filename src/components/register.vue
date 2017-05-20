@@ -65,7 +65,6 @@
 						<span class="input-title" v-if="config.TrueNameIsRequire">真实姓名</span>
 						<normal-input 
 							 v-if="config.TrueNameIsRequire"
-							myType="password"
 							myPlaceholder="请输入您的真实姓名" 
 							:myStyleObject="inputStyleObject"
 							v-model="truename">
@@ -75,7 +74,6 @@
 					<li>
 						<span class="input-title">推广码</span>
 						<normal-input 
-							myType="password"
 							myPlaceholder="请输入您的推广码" 
 							:myStyleObject="inputStyleObject"
 							v-model="popularCode">
@@ -85,10 +83,9 @@
 					<li>
 						<span class="input-title">验证码</span>
 						<normal-input 
-							myType="password"
 							myPlaceholder="请输入您的验证码" 
 							:myStyleObject="inputStyleObject"
-							v-model="popularCode">
+							v-model="verifyCode">
 						</normal-input>
 					</li>
 				</ul>
@@ -149,28 +146,45 @@
 
 		methods: {
 			goRegister: function () {
+				var opt;
 				var callback;
-				var that       =  this;
-				var opt        =  {
-					url: Config.urls.signIn,
+				var data = this.config;
+				var that = this;
+
+				callback = function (json) {
+					that.showSpinner = true;
+
+					if (json.StatusCode && json.StatusCode != 0) {
+						app.alert(json.Message);
+						return;
+					}
+					
+		        	that.$store.dispatch('setLoginStatus', {status: true});
+		        	that.$store.dispatch('getLoginUserInfo');
+		        	that.closeDialog();
+				};
+
+				opt = {
+					url: Config.urls.signUp,
 					data: {
 						UserName: this.username,
 						Password: this.userpass,
-						LoginWebSet: window.location.host
+						ExtendCode: this.popularCode,
+						RegWebSite: window.location.host
 					}
 				};
 
-				callback = function (data) {
-					that.showSpinner = false;
+				if (data.EmailIsRequire) {
+					opt.data.Email = this.email;
+				}
 
-					if (data.StatusCode && data.StatusCode != 0) {
-						alert(data.Message);
-						return;
-					}
+				if (data.PhoneIsRequire) {
+					opt.data.Phone = this.phone;
+				}
 
-		        	that.$store.dispatch('setLoginStatus', {status: true});
-		        	that.closeDialog();
-				};
+				if (data.TrueNameIsRequire) {
+					opt.data.TrueName = this.truename;
+				}
 
 				this.showSpinner = true;
 				Service.post(opt, callback);
@@ -181,7 +195,19 @@
 				this.$store.dispatch('switchLoginDialog', {status: true});
 			},
 
+			resetDialog: function () {
+				this.username        = '';
+				this.userpass        = '';
+				this.comfirmPassword = '';
+				this.popularCode     = '';
+				this.email           = '';
+				this.phone           = '';
+				this.truename        = '';
+				this.verifyCode      = '';
+			},
+
 			closeDialog: function () {
+				this.resetDialog();
 				this.$store.dispatch('switchRegisterDialog', {status: false});
 			}
 		},

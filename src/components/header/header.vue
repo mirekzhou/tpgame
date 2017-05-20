@@ -20,7 +20,7 @@
 						v-on:mouseout="usernameMouseOut" 
 						v-bind:class="{active: showUserCard}">
 
-						<span class="cursor">Hi, {{username}}</span>
+						<span class="cursor">Hi, {{loginUserInfo.UserName}}</span>
 						<span class="header-icon-down"></span>
 						<user-card :styleObject="userCardStyle" v-show="showUserCard"></user-card>
 					</li>
@@ -31,7 +31,7 @@
 					</li>
 					<li>
 						<span class="header-icon-pig"></span>
-						<span class="balance cursor">{{balance}}</span>
+						<span class="balance cursor">{{loginUserInfo.Cash}}</span>
 						<span class="header-icon-down"></span>
 						<span class="header-icon-money-refresh" v-on:click="refreshBalance" v-bind:class="{'rotate': rotateBalance}"></span>
 						<span class="separator"></span>
@@ -92,8 +92,6 @@
 		
 		data: function () {
 			return {
-				username: 'Imayday123',
-				balance: '1,000,000,000.00',
 				language: '中文',
 				showUserCard: false,
 				userCardStyle: {
@@ -141,6 +139,10 @@
 	  	computed: mapState({
 	  		loginStatus: function (state) {
 	  			return state.loginStatus;
+	  		},
+
+	  		loginUserInfo: function (state) {
+	  			return state.loginUserInfo;
 	  		}
 	  	})
 	}
