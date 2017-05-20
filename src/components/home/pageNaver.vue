@@ -171,23 +171,23 @@
 			}
 
 			.naver-sport {
-				background-image: url(../../assets/naver-sport.png);
+				background: url(../../assets/naver-sport.png) center top no-repeat;
 			}
 
 			.naver-live {
-				background-image: url(../../assets/naver-live.png);
+				background: url(../../assets/naver-live.png) center top no-repeat;
 			}
 
 			.naver-slot {
-				background-image: url(../../assets/naver-slot.png);
+				background: url(../../assets/naver-slot.png) center top no-repeat;
 			}
 
 			.naver-lottery {
-				background-image: url(../../assets/naver-lottery.png);
+				background: url(../../assets/naver-lottery.png) center top no-repeat;
 			}
 
 			.naver-egaming {
-				background-image: url(../../assets/naver-egaming.png);
+				background: url(../../assets/naver-egaming.png) center top no-repeat;
 			}
 		}
 	}
