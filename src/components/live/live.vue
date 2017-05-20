@@ -158,6 +158,7 @@
 				width: 1170px;
 				text-align: left;
 				margin: 0 auto;
+				justify-content: space-around;
 
 				li {
 					//box-shadow: 0px 15px 70px 5px #7467e8;
@@ -167,7 +168,6 @@
 					vertical-align: top;
 					width: 310px;
 					height: 440px;
-					margin-right: 80px;
 					margin-top: 40px;
 					position: relative;
 					transition: all .3s;
