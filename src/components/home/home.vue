@@ -78,7 +78,7 @@
 				    position: absolute;
 				    top: 50%;
 				    margin-top: -30px;
-				    left: 0;
+				    left: 50px;
 				    z-index: 2;
 
 					&:hover {
@@ -98,7 +98,7 @@
 	   				position: absolute;
 				    top: 50%;
 				    margin-top: -30px;
-				    right: 0;
+				    right: 50px;
 				    z-index: 2;
 
 					&:hover {

@@ -51,7 +51,7 @@
 <style lang="scss" scoped>
 	.suspension {
 	    position: fixed;
-	    top: 40%;
+	    top: 29%;
 	    right: 0;
 	    z-index: 10;
 

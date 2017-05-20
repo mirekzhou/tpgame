@@ -82,7 +82,9 @@
 	.page-naver {
 		width: 100%;
 		height: $naver-item-height;
-		margin-top: 100px;
+		margin-top: -4px;
+	    z-index: 1;
+	    position: relative;
 
 		.page-naver-wrapper {
 			display: flex;
