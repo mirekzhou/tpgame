@@ -299,7 +299,7 @@
 
 						a {
 							color: #FFF;
-							font: normal normal normal 14px/1.4em georgia,palatino,'book antiqua','palatino linotype',serif;
+							font-size: 14px;
 							text-decoration: none;
 							padding: 10px 30px;
 						}
