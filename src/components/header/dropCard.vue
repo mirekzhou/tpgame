@@ -1,7 +1,9 @@
 <template>
-	<div class="drop-card" v-bind:style="styleObject" v-show="showDropCard">
+	<div class="drop-card" 
+		 v-bind:style="styleObject" 
+		 v-show="showDropCard">
 		<ul>
-			<li v-for="item in items">
+			<li v-for="item in items" v-on:click="itemClicked(item)">
 				<span>{{item.text}}</span>
 			</li>
 		</ul>
@@ -16,7 +18,13 @@
 			'styleObject',
 			'showDropCard',
 			'items'
-		]
+		],
+
+		methods: {
+			itemClicked: function (data) {
+				this.$emit('itemClicked', data);
+			}
+		}
 	}
 </script>
 

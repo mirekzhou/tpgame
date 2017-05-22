@@ -3,8 +3,7 @@
 		<div class="top-section">
 			<div class="p-wrapper top-section-wrapper">
 				<ul>
-					<li class="li-user-center"
-						v-on:mouseover="usernameMouseOver" 
+					<li v-on:mouseover="usernameMouseOver" 
 						v-on:mouseout="usernameMouseOut" 
 						v-bind:class="{active: showUserCard}"
 						v-show="loginStatus">
@@ -13,28 +12,35 @@
 						<span class="header-icon-down"></span>
 						<user-card :styleObject="userCardStyle" v-show="showUserCard"></user-card>
 					</li>
-					<li class="li-task-center"
-					 	v-show="loginStatus">
 
+					<li class="li-task-center" v-show="loginStatus">
 						<span class="header-icon-cup"></span>
 						<span class="cursor">活动中心</span>
 						<span class="dot"></span>
 					</li>
+
 					<li v-show="loginStatus">
 						<span class="header-icon-pig"></span>
 						<span class="balance cursor">{{loginUserInfo.Cash}}</span>
 						<span class="header-icon-down"></span>
 						<span class="header-icon-money-refresh" v-on:click="refreshBalance" v-bind:class="{'rotate': rotateBalance}"></span>
-						<span class="separator"></span>
 					</li>
+
+					<li class="separator" v-show="loginStatus">
+						<span></span>
+					</li>
+
 					<li v-show="loginStatus">
 						<span class="header-icon-star"></span>
 						<span class="cursor">收藏夹</span>
 						<span class="header-icon-down"></span>
-						<span class="separator"></span>
 					</li>
-					<li class="li-money-manage"
-						v-show="loginStatus"
+
+					<li class="separator" v-show="loginStatus">
+						<span></span>
+					</li>
+
+					<li v-show="loginStatus"
 						v-on:mouseover="moneyManageMouseOver" 
 						v-on:mouseout="moneyManageMouseOut"
 						v-bind:class="{active: showMoneyManageCard}">
@@ -44,24 +50,29 @@
 						<span class="header-icon-down"></span>
 						<drop-card  :styleObject="moneyManageCardStyle" 
 									:showDropCard="showMoneyManageCard"
-									:items="moneyManageList">
+									:items="moneyManageList"
+									v-on:itemClicked="moneyManageItemClicked">
 						</drop-card>
 					</li>
-					<li v-show="loginStatus">
-						<span class="separator"></span>
+
+					<li class="separator" v-show="loginStatus">
+						<span></span>
 					</li>
+
 					<li v-show="!loginStatus">
 						<button class="go-login" v-on:click="goLogin">登录</button>
 						<button class="go-register" v-on:click="goRegister">注册</button>
 					</li>
+
 					<li v-show="loginStatus">
 						<span class="cursor">帮助中心</span>
 					</li>
+
 					<li v-show="loginStatus">
 						<button class="contact-cs cursor" v-on:click="goLogin">在线客服</button>
 					</li>
-					<li class="li-user-language"
-						v-on:mouseover="languageMouseOver" 
+
+					<li v-on:mouseover="languageMouseOver" 
 						v-on:mouseout="languageMouseOut"
 						v-bind:class="{active: showLanguageCard}">
 
@@ -69,7 +80,8 @@
 						<span class="header-icon-down"></span>
 						<drop-card  :styleObject="languageCardStyle" 
 									:showDropCard="showLanguageCard"
-									:items="languageList">
+									:items="languageList"
+									v-on:itemClicked="languageItemClicked">
 						</drop-card>
 					</li>
 				</ul>
@@ -113,7 +125,7 @@
 				languageCardStyle: {
 					'right': '0',
 					'top': '60px',
-					'width': '130px'
+					'width': '122px'
 				},
 				showLanguageCard: false,
 				languageList: [
@@ -132,7 +144,7 @@
 				moneyManageCardStyle: {
 					'right': '0',
 					'top': '60px',
-					'width': '110px'
+					'width': '100px'
 				},
 				showMoneyManageCard:false,
 				moneyManageList: [
@@ -181,11 +193,20 @@
 				this.showMoneyManageCard = false;
 			},
 
+			moneyManageItemClicked: function (data) {
+				alert(data.text);
+			},
+
 			languageMouseOver: function () {
 				this.showLanguageCard = true;
 			},
 
 			languageMouseOut: function () {
+				this.showLanguageCard = false;
+			},
+
+			languageItemClicked: function (data) {
+				this.language = data.text;
 				this.showLanguageCard = false;
 			},
 
@@ -262,16 +283,7 @@
 						height: $headerTopSectionHeight;
 						line-height: $headerTopSectionHeight;
 						position: relative;
-
-						.separator {
-							display: inline-block;
-							border-right: 1px solid #FFF;
-							height: 15px;
-							line-height: 15px;
-							width: 10px;
-							vertical-align: text-bottom;
-							margin-right: 10px;
-						}
+						padding: 0 5px;
 
 						.contact-cs {
 							background-color: #06a11b;
@@ -282,7 +294,7 @@
 							height: 30px;
 							width: 100px;
 							text-align: center;
-							margin: 0 10px;
+							margin: 0 5px;
 							outline: 0;
 						}
 
@@ -321,7 +333,7 @@
 							color: #FFF;
 							width: 82px;
 							height: 32px;
-							margin-right: 28px;
+							margin-right: 18px;
 							outline: 0;
 						}
 
@@ -331,27 +343,25 @@
 						}
 					}
 
-					.li-task-center {
-						padding-right: 10px;
-					}
+					.separator {
+						padding: 0;
 
-					.li-user-center {
-						padding: 0 10px;
-					}
-
-					.li-user-language {
-						padding: 0 10px;
-					}
-
-					.li-money-manage {
-						padding: 0 10px;
+						span {
+							display: inline-block;
+							border-right: 1px solid #FFF;
+							height: 15px;
+							line-height: 15px;
+							width: 5px;
+							margin-right: 5px;
+							vertical-align: text-bottom;
+						}
 					}
 
 					.active {
 						background-color: #252558;
 						border-left: 1px solid #333465;
 						border-right: 1px solid #333465;
-						padding: 0 9px;
+						padding: 0 4px;
 					}
 				}
 			}
