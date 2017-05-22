@@ -213,6 +213,12 @@
 							border: 1px solid #313169;
 							text-align: center;
 						}
+
+						&:hover {
+							span {
+								color: #f5bc44;
+							}
+						}
 					}
 				}
 
@@ -228,6 +234,10 @@
 				right: 0px;
 				top: -10px;
 				cursor: pointer;
+
+				&:hover {
+					color: #f5bc44;
+				}
 			}
 		}
 
