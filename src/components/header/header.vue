@@ -2,61 +2,75 @@
 	<div class="header">
 		<div class="top-section">
 			<div class="p-wrapper top-section-wrapper">
-				<ul v-show="!loginStatus">
-					<li>
-						<button class="go-login" v-on:click="goLogin">登录</button>
-						<button class="go-register" v-on:click="goRegister">注册</button>
-					</li>
-
-					<li>
-						<span class="cursor">语言选择：{{language}}</span>
-						<span class="header-icon-down"></span>
-					</li>
-				</ul>
-
-				<ul v-show="loginStatus">
+				<ul>
 					<li class="li-user-center"
 						v-on:mouseover="usernameMouseOver" 
 						v-on:mouseout="usernameMouseOut" 
-						v-bind:class="{active: showUserCard}">
+						v-bind:class="{active: showUserCard}"
+						v-show="loginStatus">
 
 						<span class="cursor">Hi, {{loginUserInfo.UserName}}</span>
 						<span class="header-icon-down"></span>
 						<user-card :styleObject="userCardStyle" v-show="showUserCard"></user-card>
 					</li>
-					<li class="li-task-center">
+					<li class="li-task-center"
+					 	v-show="loginStatus">
+
 						<span class="header-icon-cup"></span>
 						<span class="cursor">活动中心</span>
 						<span class="dot"></span>
 					</li>
-					<li>
+					<li v-show="loginStatus">
 						<span class="header-icon-pig"></span>
 						<span class="balance cursor">{{loginUserInfo.Cash}}</span>
 						<span class="header-icon-down"></span>
 						<span class="header-icon-money-refresh" v-on:click="refreshBalance" v-bind:class="{'rotate': rotateBalance}"></span>
 						<span class="separator"></span>
 					</li>
-					<li>
+					<li v-show="loginStatus">
 						<span class="header-icon-star"></span>
 						<span class="cursor">收藏夹</span>
 						<span class="header-icon-down"></span>
 						<span class="separator"></span>
 					</li>
-					<li>
+					<li class="li-money-manage"
+						v-show="loginStatus"
+						v-on:mouseover="moneyManageMouseOver" 
+						v-on:mouseout="moneyManageMouseOut"
+						v-bind:class="{active: showMoneyManageCard}">
+
 						<span class="header-icon-folder"></span>
 						<span class="cursor">资金管理</span>
 						<span class="header-icon-down"></span>
+						<drop-card  :styleObject="moneyManageCardStyle" 
+									:showDropCard="showMoneyManageCard"
+									:items="moneyManageList">
+						</drop-card>
+					</li>
+					<li v-show="loginStatus">
 						<span class="separator"></span>
 					</li>
-					<li>
+					<li v-show="!loginStatus">
+						<button class="go-login" v-on:click="goLogin">登录</button>
+						<button class="go-register" v-on:click="goRegister">注册</button>
+					</li>
+					<li v-show="loginStatus">
 						<span class="cursor">帮助中心</span>
 					</li>
-					<li>
+					<li v-show="loginStatus">
 						<button class="contact-cs cursor" v-on:click="goLogin">在线客服</button>
 					</li>
-					<li>
+					<li class="li-user-language"
+						v-on:mouseover="languageMouseOver" 
+						v-on:mouseout="languageMouseOut"
+						v-bind:class="{active: showLanguageCard}">
+
 						<span class="cursor">语言选择：{{language}}</span>
 						<span class="header-icon-down"></span>
+						<drop-card  :styleObject="languageCardStyle" 
+									:showDropCard="showLanguageCard"
+									:items="languageList">
+						</drop-card>
 					</li>
 				</ul>
 			</div>
@@ -84,6 +98,7 @@
 <script>
 	import '../../scss/common.scss';
 	import userCard from './userCard';
+	import dropCard from './dropCard';
 	import collectionCard from './collectionCard';
 	import { mapState } from 'vuex';
 
@@ -94,6 +109,45 @@
 			return {
 				language: '中文',
 				showUserCard: false,
+
+				languageCardStyle: {
+					'right': '0',
+					'top': '60px',
+					'width': '130px'
+				},
+				showLanguageCard: false,
+				languageList: [
+					{
+						text:'中文',
+						value: 'zh'
+					}, {
+						text: 'English',
+						value: 'en'
+					} , {
+						text: '繁体中文',
+						value: 'tw'
+					}
+				],
+
+				moneyManageCardStyle: {
+					'right': '0',
+					'top': '60px',
+					'width': '110px'
+				},
+				showMoneyManageCard:false,
+				moneyManageList: [
+					{
+						text:'充值',
+						value: '0'
+					}, {
+						text: '转账',
+						value: '1'
+					} , {
+						text: '提现',
+						value: '2'
+					}
+				],
+
 				userCardStyle: {
 					'left': '0',
 					'top': '60px'
@@ -119,6 +173,22 @@
 				this.showUserCard = false;
 			},
 
+			moneyManageMouseOver: function () {
+				this.showMoneyManageCard = true;
+			},
+
+			moneyManageMouseOut: function () {
+				this.showMoneyManageCard = false;
+			},
+
+			languageMouseOver: function () {
+				this.showLanguageCard = true;
+			},
+
+			languageMouseOut: function () {
+				this.showLanguageCard = false;
+			},
+
 			refreshBalance: function () {
 				var that = this;
 
@@ -133,7 +203,8 @@
 
 		components: {
 			'user-card' :userCard,
-			'collection-card': collectionCard
+			'collection-card': collectionCard,
+			'drop-card': dropCard
 		},
 
 	  	computed: mapState({
@@ -268,8 +339,19 @@
 						padding: 0 10px;
 					}
 
+					.li-user-language {
+						padding: 0 10px;
+					}
+
+					.li-money-manage {
+						padding: 0 10px;
+					}
+
 					.active {
 						background-color: #252558;
+						border-left: 1px solid #333465;
+						border-right: 1px solid #333465;
+						padding: 0 9px;
 					}
 				}
 			}
