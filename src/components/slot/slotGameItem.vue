@@ -65,7 +65,7 @@
 	$gameItemHeight          :    $gameWidth * 146 / $gameL;
 	$topZoneHeight           :    $gameWidth * 120 / $gameL;
 	$middleZoneHeight        :    $gameWidth * 1 / $gameL;
-	$bottomZoneHeight        :    $gameWidth * 25 / $gameL;
+	$bottomZoneHeight        :    $gameWidth * 24 / $gameL;
 	$themeBkColor1           :    #222355;
 	
 	.slot-game-item {
@@ -74,8 +74,6 @@
 		cursor: pointer;
 		height: $gameItemHeight;
 		width: $gameItemWidth;
-		margin-right: 10px;
-		margin-top: 10px;
 
 		.top-zone {
 			position: relative;

@@ -59,19 +59,24 @@
 
 <style lang="scss" scoped>
 	.collection-card {
-		background-color: rgba(6, 5, 27, .78);
+		background-color: #252558;
 		width: 100%;
 		position: absolute;
 		left: 0;
 		top: -300px;
-		padding: 20px;
 
 		.collection-card-wrapper {
+			padding: 20px 33px 10px 33px;
 			width: 1140px;
 			margin: 0 auto;
 			display: inline-flex;
 			flex-direction: row;
 			flex-wrap: wrap;
+
+			.slot-game-item {
+				margin-right: 55px;
+				margin-bottom: 10px;
+			}
 		}
 	}
 </style>

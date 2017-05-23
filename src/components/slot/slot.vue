@@ -576,6 +576,11 @@
 					display: inline-flex;
 					flex-direction: row;
 					flex-wrap: wrap;
+
+					.slot-game-item {
+						margin-right: 10px;
+						margin-top: 10px;
+					}
 				}
 
 				.game-zone-right {
