@@ -47,7 +47,6 @@ export default {
 		};
 
 		Service.get(opt, function (data) {
-			console.log(JSON.stringify(data));
 			commit('SET_LOGIN_USER_INFO', {data: data});
 		});
 	},
@@ -122,6 +121,31 @@ export default {
 			}
 
 			commit('SET_REGISTER_CONFIG', {data: json});
+		};
+
+		Service.get(opt, callback);
+	},
+
+	getCollectedGames: function ({commit}) {
+		var opt;
+		var callback;
+
+		opt = {
+			url: Config.urls.getFavoriteGames,
+			data: {
+				platform: '',
+				pageSize: 10,
+				pageIndex: 0
+			}
+		};
+		
+		callback = function (json) {
+			if (json.StatusCode && json.StatusCode != 0) {
+				alert(json.Message);
+				return;
+			}
+
+			commit('SET_COLLECTED_GAMES', {data: json.Data.list});
 		};
 
 		Service.get(opt, callback);

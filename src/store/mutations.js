@@ -46,5 +46,9 @@ export default {
 
 	SET_REGISTER_CONFIG: function (state, opt) {
 		state.registerConfig = opt.data;
+	},
+
+	SET_COLLECTED_GAMES: function (state, opt) {
+		state.collectedGames = opt.data;
 	}
 };

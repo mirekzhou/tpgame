@@ -21,6 +21,7 @@ const state = {
 	gameWins               :   {},      //各平台游戏打开的窗口
 	jackpotGames           :   [],      //彩金游戏
 	registerConfig         :   '',      //注册配置
+	collectedGames         :   [],      //收藏的游戏
 	platformsInfo          :   '',      //平台配置信息
 
 	trueNameStatus         :   '',      //是否绑定真实姓名

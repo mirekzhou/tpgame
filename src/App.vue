@@ -1,13 +1,13 @@
 <template>
 	<div id="app">
 		<my-header></my-header>
-<!-- 		<breaking-news></breaking-news>
+		<breaking-news></breaking-news>
 		
 		<transition name="fade">
 		    <keep-alive>
 		      	<router-view></router-view>
 		    </keep-alive>
-		</transition> -->
+		</transition>
 		
 		<my-footer></my-footer>
 		<suspension></suspension>

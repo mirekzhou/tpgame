@@ -30,10 +30,17 @@
 						<span></span>
 					</li>
 
-					<li v-show="loginStatus">
+					<li class="li-collection"
+						v-show="loginStatus"
+						v-on:mouseover="collectionMouseOver" 
+						v-on:mouseout="collectionMouseOut">
+
 						<span class="header-icon-star"></span>
 						<span class="cursor">收藏夹</span>
 						<span class="header-icon-down"></span>
+						<collection-card :styleObject="collectionCardStyle" 
+										 :showCollectionCard="showCollectionCard">
+						</collection-card>
 					</li>
 
 					<li class="separator" v-show="loginStatus">
@@ -120,14 +127,34 @@
 		data: function () {
 			return {
 				language: '中文',
+				rotateBalance: false,
+
 				showUserCard: false,
+				showLanguageCard: false,
+				showMoneyManageCard:false,
+				showCollectionCard: false,
+
+				userCardStyle: {
+					'left': '0',
+					'top': '60px'
+				},
 
 				languageCardStyle: {
 					'right': '0',
 					'top': '60px',
 					'width': '122px'
 				},
-				showLanguageCard: false,
+
+				moneyManageCardStyle: {
+					'right': '0',
+					'top': '60px',
+					'width': '100px'
+				},
+
+				collectionCardStyle: {
+					'top': '60px'
+				},
+
 				languageList: [
 					{
 						text:'中文',
@@ -140,13 +167,7 @@
 						value: 'tw'
 					}
 				],
-
-				moneyManageCardStyle: {
-					'right': '0',
-					'top': '60px',
-					'width': '100px'
-				},
-				showMoneyManageCard:false,
+				
 				moneyManageList: [
 					{
 						text:'充值',
@@ -158,13 +179,7 @@
 						text: '提现',
 						value: '2'
 					}
-				],
-
-				userCardStyle: {
-					'left': '0',
-					'top': '60px'
-				},
-				rotateBalance: false
+				]
 			}
 		},
 
@@ -208,6 +223,14 @@
 			languageItemClicked: function (data) {
 				this.language = data.text;
 				this.showLanguageCard = false;
+			},
+
+			collectionMouseOver: function () {
+				this.showCollectionCard = true;
+			},
+
+			collectionMouseOut: function () {
+				this.showCollectionCard = false;
 			},
 
 			refreshBalance: function () {
@@ -355,6 +378,10 @@
 							margin-right: 5px;
 							vertical-align: text-bottom;
 						}
+					}
+
+					.li-collection {
+						position: initial;
 					}
 
 					.active {

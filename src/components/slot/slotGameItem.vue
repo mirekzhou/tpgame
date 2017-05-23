@@ -2,7 +2,7 @@
 	<div class="slot-game-item">
 		<div class="top-zone">
 			<div class="image" v-bind:style="{backgroundImage: imgUrl}"></div>
-			<div class="jackpot-value">111.23</div>
+			<div class="jackpot-value" v-show="showJackpots">111.23</div>
 		</div>
 
 		<div class="bottom-zone">
@@ -118,6 +118,7 @@
 			line-height: $bottomZoneHeight;
 			width: 100%;
 			font-size: 12px;
+			text-align: left;
 
 			.name {
 				box-sizing: border-box;
