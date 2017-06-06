@@ -9,7 +9,7 @@ var localStorageDuration = 1;
 
 //配置API域名和comet服务器域名
 if (env == 'debug') {
-	domain      = '//api.evebets.com/';
+	domain      = 'http://localhost:8088/tpgame-test/public/index.php/';
 	cometDomain = '//comet.evebets.com/';
 } else if (env == 'test') {
 	domain      = '//api.evebets.com/';

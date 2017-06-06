@@ -76,7 +76,6 @@
 	}
 
 	body {
-		//background-image: url(assets/app-bg.png);
 		background-color: #090c2d;
 		color: #FFF;
 	}
